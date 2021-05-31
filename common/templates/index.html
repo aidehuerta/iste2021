@@ -1,0 +1,177 @@
+{% extends "base.html" %} {% load i18n static %} {% block content %}
+<!--Cabecera -->
+<header>
+  <div class="container">
+    <div id="logo">
+      <a href="{% url 'common:index' %}">
+        <img
+          src="{% static 'images/BOOKMOTION_ALTA.png' %}"
+          alt="logotipo"
+          width="271px"
+        />
+      </a>
+    </div>
+    <div id="InfoContacto">
+      <a href="{% url 'account:login' %}"><i class="far fa-user"></i></a>
+    </div>
+  </div>
+</header>
+
+<!--Contenedor principal main con 5 secciones-->
+<main>
+  <article>
+    <!-- Primera seccion llevara 2 columnas, una para el titulo principal h1, sus 3 parrafos, y la siguiente para el formulario-->
+    <section>
+      <div id="intro" class="container">
+        <div id="descripcion">
+          <h2>¿Qué es inteligencia emocional?</h2>
+          <p>
+            Existen diversos autores que describen el concepto de inteligencia
+            emocional, uno de los pioneros, es el Psicólogo y escritor Goleman,
+            D (2010, p 90) el cual la describe como “la capacidad de reconocer
+            nuestros propios sentimientos y los de los demás, de motivarnos y de
+            manejar adecuadamente las relaciones”.
+          </p>
+          <p>
+            Por su parte
+            <a
+              href="http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-28722015000200006"
+              target="_blank"
+              >Rafael Bisquerra</a
+            >
+            presenta una serie de competencias emocionales, estas competencias
+            son las siguientes: Conciencia emocional, regulación emocional,
+            autonomía emocional, competencia social y competencias para la vida
+            y el bienestar.
+          </p>
+          <p>
+            Según este autor,
+            <a
+              href="https://www.redalyc.org/jatsRepo/3761/376157736006/html/index.html"
+              target="_blank"
+              >autor</a
+            >
+            la inteligencia emocional consiste en la habilidad de manejar los
+            sentimientos y emociones, discriminar entre ellos y utilizar estos
+            conocimientos para dirigir los propios pensamientos y acciones
+            (Bisquerra, R. 2000: 144).
+          </p>
+
+          <h2>¿Por qué es importante la inteligencia emocional?</h2>
+          <p>
+            La inteligencia emocional es una competencia que ayuda a la
+            adaptación, motivación, e inserción social, por ello se considera
+            importante la implementación de la educación emocional en etapas
+            tempranas como el preescolar, para que el niño identifique y
+            reconozca sus emociones y aprenda a regularlas, tanto en el ámbito
+            escolar como en el contexto social. En las diferentes etapas el niño
+            se enfrentará a diversas situaciones que pondrán a prueba su
+            adaptación y tolerancia a la frustración, y si cuenta con las
+            herramientas necesarias para afrontar estas situaciones se
+            contribuirá a su crecimiento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--Seccion 2 En esta seccion se dividen en 2 columnas una para un subtitulo h2 y un parrafo; y la siguente columna para el video-->
+    <section>
+      <div id="seccionDos" class="container">
+        <div>
+          <h2>Sobre nosotros</h2>
+          <p>
+            Somos un grupo de alumnos 6º Semestre de HS el cual está interesado
+            en realizar un proyecto que propicie las habilidades básicas de la
+            inteligencia emocional, mostrando una situación de aprendizaje a
+            través de cuentos para que los alumnos de la sección de preescolar
+            identifiquen las diferentes emociones que están experimentando con
+            la historia del cuento.
+          </p>
+          <p>
+            Tuvimos el apoyo del departamento psicopedagógico con un taller de
+            inteligencia emocional, cuyo objetivo fue proporcionarnos de manera
+            vivencial, herramientas de alfabetización, conciencia y expresión
+            emocional a través del cuerpo y la atención plena; Recibiendo
+            también el apoyo por parte del área de tecnología de nuestro colegio
+            para desarrollar la programación y mecanismo del prototipo.
+          </p>
+          <a href="{% url 'common:description' %}" >Descripción prototipo</a>
+        </div>
+
+        <video controls>
+          <source src="{% static 'videos/marketing.mp4' %}" type="video/mp4"></source>
+          <p>{% trans "Su navegador no soporta videos" %}</p>
+        </video>
+      </div>
+    </section>
+
+    <!--Seccion 3, se divide en 4 secciones (div) para poner en cada columna imagenes de los integrantes del equipo -->
+    <section>
+      <h2>{% trans "Conoce a los creadores del proyecto" %}</h2>
+      <div id="seccionTres" class="container">
+        <div class="card">
+          <img
+            src="{% static 'images/paulinaa.jpg' %}"
+            alt="Paulina Gonzalez A."
+          />
+          <h3 class="sencillo">Paulina Gonzalez A.</h3>
+          <p class="sencillo">Creadora del cuento</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/ornelass.jpg' %}"
+            alt="Salvador Ornelas P."
+          />
+          <h3 class="sencillo">Salvador Ornelas P.</h3>
+          <p class="sencillo">Paid Search Specialist</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/camilaa.jpg' %}"
+            alt="Camila Lizalde M."
+          />
+          <h3 class="sencillo">Camila Lizalde M.</h3>
+          <p class="sencillo">Encargada de la pagina web</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/veroo.jpg' %}"
+            alt="Veronica Vargas N."
+          />
+          <h3 class="sencillo">Veronica Vargas N.</h3>
+          <p class="sencillo">Creadora del cuento</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/juann.jpg' %}"
+            alt="Juan Carlos Ramirez T."
+          />
+          <h3 class="sencillo">Juan Carlos Ramirez T.</h3>
+          <p class="sencillo">Consultor de Social Media</p>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!--Pie de pagina y menu  en 2 columnas (menu y letritas chiquitas de derecho reservado)-->
+<footer>
+  <div id="pieDePagina" class="container">
+    <ul class="nav">
+      <li><a href="{% url 'common:index' %}">{% trans "Principal" %}</a></li>
+      <li>
+        <a href="https://www.newland.edu.mx/" target="_blank"
+          >{% trans "Nuestro colegio" %}</a
+        >
+      </li>
+    </ul>
+    <div class="copyright">
+      <small>&copy 2021 {% trans "Derechos reservados." %}</small>
+    </div>
+  </div>
+</footer>
+{% endblock %} {% block scripts %} {% endblock %}

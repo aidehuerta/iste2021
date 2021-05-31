@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% load i18n static %} {% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white text-dark small">
+        <li class="breadcrumb-item"><a href="{% url 'common:home' %}">{% trans "Principal" %}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Contendios" %}</li>
+    </ol>
+</nav>
+
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+
+<div class="overlay">
+  <div class="container-fluid mb-5">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <hr />
+        <h2 class="logo-font mb-4">
+          {% trans "Administración de Contenidos" %}
+        </h2>
+        <h5 class="text-muted">{% trans "Listado de Contenidos" %}</h5>
+        <hr />
+      </div>
+    </div>
+
+    <div class="row">
+      {% for c in content %}
+      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="card h-100 border-0">
+          <a href="{% url 'content:edit' c.id %}"> {{ c.title }} </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{% url 'content:add' %}">{% trans "Agregar" %}</a>
+  </div>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}

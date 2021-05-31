@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% load i18n static %} {% block content %}
+<div class="centrado">
+  <div>
+    <img
+      src="{% static '/images/BOOKMOTION_ALTA.png' %}"
+      alt="logotipo"
+      style="max-width: 542px"
+      class="vertical50"
+    />
+  </div>
+  <h2>{% trans "Iniciar sesión" %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-control">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+    <div>&nbsp;</div>
+    <div class="form-control">
+      {{ form.password.label_tag }}
+      {{ form.password }}
+    </div>
+    <div>&nbsp;</div>
+    <input type="hidden" name="next" value="{% url 'common:index' %}" />
+    <input type="submit" value="{% trans 'Iniciar Sesión' %}" />
+    <div>
+      {% if form.errors %}
+      <p style="color: red">
+        {% trans "Por favor verifique su usuario y contraseña." %}
+      </p>
+      {% endif %}
+    </div>
+  </form>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}
