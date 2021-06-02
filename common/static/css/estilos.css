@@ -294,3 +294,102 @@ footer {
   display: inline-block;
   width: 100px;
 }
+
+/****************/
+
+.header2 {
+  background-image: linear-gradient(
+      to left top,
+      rgba(252, 236, 19, 0.932),
+      rgba(210, 133, 116, 0.9),
+      rgba(93, 152, 245, 0.9),
+      rgba(93, 245, 113, 0.9)
+    ),
+    url("../images/mental.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+  height: 17%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+.sidenav {
+  height: 83%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  height: 83%;
+  width: 85%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 15%;
+  overflow-x: auto;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 0;
+}
+
+.mb-4,
+.my-4 {
+  margin-bottom: 0.5rem !important;
+}
+
+.card-video-title {
+  text-align: center;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card {
+  padding-bottom: 0;
+}
+
+.form label {
+  width: 150px;
+}
+
+.form-text-input {
+  height: 28px;
+  width: 275px;
+}
+
+.home-foto {
+  text-align: center;
+  padding-top: 50px;
+}

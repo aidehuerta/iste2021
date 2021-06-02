@@ -1,13 +1,12 @@
-from django.urls import include, path
-from rest_framework import routers
+from django.urls import path
 
-from .views import SessionViewSet
+from .views import add, delete, edit, listing
 
 app_name = 'session'
 
-router = routers.DefaultRouter()
-router.register(r'', SessionViewSet, basename='session')
-
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', listing, name='home'),
+    path('add/', add, name='add'),
+    path('edit/<int:pk>/', edit, name='edit'),
+    path('delete/<int:pk>/', delete, name='delete'),
 ]

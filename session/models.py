@@ -37,7 +37,7 @@ class Session(BaseModel):
         'Contenido'), on_delete=models.DO_NOTHING)
     teacher = models.ForeignKey('teacher.Teacher', verbose_name=_(
         'Maestro'), on_delete=models.DO_NOTHING, null=True)
-    terapist = models.ForeignKey('therapist.Therapist', verbose_name=_(
+    therapist = models.ForeignKey('therapist.Therapist', verbose_name=_(
         'Terapista'), on_delete=models.DO_NOTHING, null=True)
     emotion = models.ForeignKey('session.Emotion', verbose_name=_(
         'Emoción'), on_delete=models.DO_NOTHING)

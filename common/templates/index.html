@@ -1,22 +1,4 @@
 {% extends "base.html" %} {% load i18n static %} {% block content %}
-<!--Cabecera -->
-<header>
-  <div class="container">
-    <div id="logo">
-      <a href="{% url 'common:index' %}">
-        <img
-          src="{% static 'images/BOOKMOTION_ALTA.png' %}"
-          alt="logotipo"
-          width="271px"
-        />
-      </a>
-    </div>
-    <div id="InfoContacto">
-      <a href="{% url 'account:login' %}"><i class="far fa-user"></i></a>
-    </div>
-  </div>
-</header>
-
 <!--Contenedor principal main con 5 secciones-->
 <main>
   <article>

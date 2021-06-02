@@ -6,7 +6,7 @@
         <a href="{% url 'common:home' %}">{% trans "Principal" %}</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">
-        {% trans "Contenidos" %}
+        {% trans "Maestros" %}
       </li>
     </ol>
   </nav>
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-12 col-md-12">
         <h2 class="logo-font mb-4">
-          {% trans "Administración de Contenidos" %}
+          {% trans "Administración de Maestros" %}
         </h2>
         <h5 class="text-muted">{% trans "Listado" %}</h5>
         <hr />
@@ -23,9 +23,9 @@
     </div>
 
     <div class="row">
-      {% for c in content %}
+      {% for c in teacher %}
       <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2">
-        <a href="{% url 'content:edit' c.id %}">
+        <a href="{% url 'teacher:edit' c.id %}">
           <div class="card border-0">
             <iframe
               width="100%"
@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-12 col-md-12">
         <div class="col-12 col-md-12">
-          <a href="{% url 'content:add' %}"
+          <a href="{% url 'teacher:add' %}"
             ><button class="btn btn-outline-success rounded-0" type="submit">
               {% trans "Agregar" %}
             </button></a

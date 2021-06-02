@@ -178,7 +178,7 @@ CACHES = {
     }
 }
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'account:login'
 LOGOUT_REDIRECT_URL = 'common:index'
 LOGIN_REDIRECT_URL = 'common:home'
 

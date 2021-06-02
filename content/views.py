@@ -6,24 +6,26 @@ from .forms import ContentForm
 from .models import Content
 
 
-def list_content(request):
+@login_required
+def listing(request):
     context = {
         'content': Content.objects.all()
     }
     return render(request, 'list_content.html', context=context)
 
 
-def add_content(request):
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only store owners can do that.')
-    #     return redirect(reverse('content:list'))
+@login_required
+def add(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('content:home'))
 
     if request.method == 'POST':
         form = ContentForm(request.POST)
         if form.is_valid():
             content = form.save()
             messages.success(request, 'Successfully added content!')
-            return redirect(reverse('content:list'))
+            return redirect(reverse('content:home'))
         else:
             messages.error(
                 request, 'Failed to add content. Please ensure the form is valid.')
@@ -36,10 +38,11 @@ def add_content(request):
     return render(request, 'add_content.html', context)
 
 
-def edit_content(request, pk):
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only store owners can do that.')
-    #     return redirect(reverse('content:list'))
+@login_required
+def edit(request, pk):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('content:home'))
 
     content = get_object_or_404(Content, pk=pk)
 
@@ -48,7 +51,7 @@ def edit_content(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated content!')
-            return redirect(reverse('content:list'))
+            return redirect(reverse('content:home'))
         else:
             messages.error(
                 request, 'Failed to update content. Please ensure the form is valid.')
@@ -63,12 +66,13 @@ def edit_content(request, pk):
     return render(request, 'edit_content.html', context)
 
 
-def delete_content(request, pk):
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only store owners can do that.')
-    #     return redirect(reverse('content:list'))
+@login_required
+def delete(request, pk):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('content:home'))
 
     content = get_object_or_404(Content, pk=pk)
     content.delete()
     messages.success(request, 'Content deleted!')
-    return redirect(reverse('content:list'))
+    return redirect(reverse('content:home'))

@@ -6,11 +6,11 @@ urlpatterns = [
     path('', include('common.urls')),
     path('account/', include('account.urls')),
     path('content/', include('content.urls')),
-    # path('course/', include('course.urls')),
-    # path('patient/', include('patient.urls')),
-    # path('session/', include('session.urls')),
-    # path('teacher/', include('teacher.urls')),
-    # path('therapist/', include('therapist.urls')),
+    path('course/', include('course.urls')),
+    path('patient/', include('patient.urls')),
+    path('session/', include('session.urls')),
+    path('teacher/', include('teacher.urls')),
+    path('therapist/', include('therapist.urls')),
 
     path('admin/', admin.site.urls),
 ]

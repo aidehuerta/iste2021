@@ -41,10 +41,10 @@
   </head>
   <body>
     <!--Cabecera -->
-    <header>
+    <header class="header2">
       <div class="container">
         <div id="logo">
-          <a href="{% url 'common:index' %}">
+          <a href="{% url 'common:home' %}">
             <img
               src="{% static 'images/BOOKMOTION_ALTA.png' %}"
               alt="logotipo"
@@ -52,11 +52,23 @@
             />
           </a>
         </div>
-        <div id="InfoContacto">
-          <a href="{% url 'account:login' %}"><i class="far fa-user"></i></a>
-        </div>
       </div>
     </header>
+
+    <div class="sidenav">
+      <br />
+      <a href="{% url 'common:home' %}">{% trans "Principal" %}</a>
+      <br />
+      <a href="{% url 'content:home' %}">{% trans "Contenidos" %}</a>
+      <a href="{% url 'course:home' %}">{% trans "Cursos" %}</a>
+      <a href="{% url 'patient:home' %}">{% trans "Pacientes" %}</a>
+      <a href="{% url 'session:home' %}">{% trans "Sesiones" %}</a>
+      <a href="{% url 'teacher:home' %}">{% trans "Maestros" %}</a>
+      <a href="{% url 'therapist:home' %}">{% trans "Terapistas" %}</a>
+      <br />
+      <a href="{% url 'account:logout' %}">{% trans "Salir" %}</a>
+    </div>
+
     {% block content %} {% endblock %} {% block scripts %} {% endblock %}
   </body>
 </html>

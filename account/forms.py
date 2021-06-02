@@ -4,9 +4,9 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class LoginForm(AuthenticationForm):
-    username = forms.EmailField(
+    username = forms.CharField(
         label=_("Usuario"),
-        widget=forms.EmailInput({
+        widget=forms.TextInput({
             'placeholder': _('usuario')}))
 
     password = forms.CharField(

@@ -1,33 +1,11 @@
-{% extends "base.html" %} {% load i18n static %} {% block content %}
-<!--Cabecera -->
-<header>
-  <div class="container">
-    <div id="logo">
-      <a href="{% url 'common:home' %}">
-        <img
-          src="{% static 'images/BOOKMOTION_ALTA.png' %}"
-          alt="logotipo"
-          width="271px"
-        />
-      </a>
-    </div>
-    <div id="InfoContacto">
-      <a href="{% url 'account:logout' %}"><i class="far fa-user"></i></a>
-    </div>
+{% extends "base2.html" %} {% load i18n static %} {% block content %}
+<div class="main">
+  <div class="home-foto">
+    <img
+      src="{% static 'images/iste2021.jpg' %}"
+      alt="logotipo"
+      width="600px"
+    />
   </div>
-</header>
-
-<ul class="nav">
-  <li><a href="{% url 'common:home' %}">{% trans "Principal" %}</a></li>
-  <li><a href="{% url 'content:list' %}">{% trans "Contenido" %}</a></li>
-</ul>
-
-<!--Pie de pagina y menu  en 2 columnas (menu y letritas chiquitas de derecho reservado)-->
-<footer>
-  <div id="pieDePagina" class="container">
-    <div class="copyright">
-      <small>&copy 2021 {% trans "Derechos reservados." %}</small>
-    </div>
-  </div>
-</footer>
+</div>
 {% endblock %} {% block scripts %} {% endblock %}
