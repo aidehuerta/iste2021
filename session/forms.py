@@ -2,10 +2,10 @@ from django import forms
 from django.forms.widgets import NumberInput
 
 from content.models import Content
-from patient.models import Patient
+from session.models import Emotion
+from student.models import Student
 from teacher.models import Teacher
 from therapist.models import Therapist
-from session.models import Emotion
 
 from .models import Session
 
@@ -15,7 +15,7 @@ class SessionForm(forms.ModelForm):
         model = Session
         fields = '__all__'
         widgets = {
-            'patient': forms.Select(attrs={'class': 'form-text-input'}),
+            'student': forms.Select(attrs={'class': 'form-text-input'}),
             'content': forms.Select(attrs={'class': 'form-text-input'}),
             'teacher': forms.Select(attrs={'class': 'form-text-input'}),
             'therapist': forms.Select(attrs={'class': 'form-text-input'}),
@@ -27,12 +27,12 @@ class SessionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        patient = Patient.objects.all()
-        patient_display_name = [(_.id, _.patient) for _ in patient]
-        self.fields['patient'].choices = patient_display_name
+        student = Student.objects.all()
+        student_display_name = [(_.id, _.name) for _ in student]
+        self.fields['student'].choices = student_display_name
 
         content = Content.objects.all()
-        content_display_name = [(_.id, _.patient) for _ in content]
+        content_display_name = [(_.id, _.title) for _ in content]
         self.fields['content'].choices = content_display_name
 
         teacher = Teacher.objects.all()

@@ -1,0 +1,113 @@
+{% extends "base.html" %} {% load i18n static %} {% block content %}
+<!--Contenedor principal main con 5 secciones-->
+<main>
+  <article>
+    <!-- Primera seccion llevara 2 columnas, una para el titulo principal h1, sus 3 parrafos, y la siguiente para el formulario-->
+    <section>
+      <div id="intro" class="container">
+        <div id="descripcion">
+          <h2>{% trans "¿Qué es inteligencia emocional?" %}</h2>
+          <p>
+            {% trans "Existen diversos autores que describen el concepto de inteligencia emocional, uno de los pioneros, es el Psicólogo y escritor Goleman, D (2010, p 90) el cual la describe como “la capacidad de reconocer nuestros propios sentimientos y los de los demás, de motivarnos y de manejar adecuadamente las relaciones”." %}
+          </p>
+          <p>
+            {% trans "Por su parte" %}
+            <a
+              href="http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-28722015000200006"
+              target="_blank"
+              >Rafael Bisquerra</a
+            >
+            {% trans "presenta una serie de competencias emocionales, estas competencias son las siguientes: Conciencia emocional, regulación emocional, autonomía emocional, competencia social y competencias para la vida y el bienestar." %}
+          </p>
+          <p>
+            {% trans "Según este autor," %}
+            <a
+              href="https://www.redalyc.org/jatsRepo/3761/376157736006/html/index.html"
+              target="_blank"
+              >autor</a
+            >
+            {% trans "la inteligencia emocional consiste en la habilidad de manejar los sentimientos y emociones, discriminar entre ellos y utilizar estos conocimientos para dirigir los propios pensamientos y acciones (Bisquerra, R. 2000: 144)." %}
+          </p>
+
+          <h2>{% trans "¿Por qué es importante la inteligencia emocional?" %}</h2>
+          <p>
+            {% trans "La inteligencia emocional es una competencia que ayuda a la adaptación, motivación, e inserción social, por ello se considera importante la implementación de la educación emocional en etapas tempranas como el preescolar, para que el niño identifique y reconozca sus emociones y aprenda a regularlas, tanto en el ámbito escolar como en el contexto social. En las diferentes etapas el niño se enfrentará a diversas situaciones que pondrán a prueba su adaptación y tolerancia a la frustración, y si cuenta con las herramientas necesarias para afrontar estas situaciones se contribuirá a su crecimiento." %}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--Seccion 2 En esta seccion se dividen en 2 columnas una para un subtitulo h2 y un parrafo; y la siguente columna para el video-->
+    <section>
+      <div id="seccionDos" class="container">
+        <div>
+          <h2>{% trans "Sobre nosotros" %}</h2>
+          <p>
+            {% trans "Somos un grupo de alumnos 6º Semestre de HS el cual está interesado en realizar un proyecto que propicie las habilidades básicas de la inteligencia emocional, mostrando una situación de aprendizaje a través de cuentos para que los alumnos de la sección de preescolar identifiquen las diferentes emociones que están experimentando con la historia del cuento." %}
+          </p>
+          <p>
+            {% trans "Tuvimos el apoyo del departamento psicopedagógico con un taller de inteligencia emocional, cuyo objetivo fue proporcionarnos de manera vivencial, herramientas de alfabetización, conciencia y expresión emocional a través del cuerpo y la atención plena; Recibiendo también el apoyo por parte del área de tecnología de nuestro colegio para desarrollar la programación y mecanismo del prototipo." %}
+          </p>
+          <a href="{% url 'common:description' %}" >{% trans "Descripción prototipo" %}</a>
+        </div>
+
+        <video controls>
+          <source src="{% static 'videos/marketing.mp4' %}" type="video/mp4"></source>
+          <p>{% trans "Su navegador no soporta videos" %}</p>
+        </video>
+      </div>
+    </section>
+
+    <!--Seccion 3, se divide en 4 secciones (div) para poner en cada columna imagenes de los integrantes del equipo -->
+    <section>
+      <h2>{% trans "Conoce a los creadores del proyecto" %}</h2>
+      <div id="seccionTres" class="container">
+        <div class="card">
+          <img
+            src="{% static 'images/paulinaa.jpg' %}"
+            alt="Paulina Gonzalez A."
+          />
+          <h4>Paulina Gonzalez A.</h4>
+          <p>Creadora del cuento</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/ornelass.jpg' %}"
+            alt="Salvador Ornelas P."
+          />
+          <h4>Salvador Ornelas P.</h4>
+          <p>Paid Search Specialist</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/camilaa.jpg' %}"
+            alt="Camila Lizalde M."
+          />
+          <h4>Camila Lizalde M.</h4>
+          <p>Encargada de la pagina web</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/veroo.jpg' %}"
+            alt="Veronica Vargas N."
+          />
+          <h4>Veronica Vargas N.</h4>
+          <p>Creadora del cuento</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'images/juann.jpg' %}"
+            alt="Juan Carlos Ramirez T."
+          />
+          <h4>Juan C. Ramirez</h4>
+          <p>Consultor de Social Media</p>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock %} {% block scripts %} {% endblock %}

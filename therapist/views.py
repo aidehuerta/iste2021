@@ -7,72 +7,89 @@ from .models import Therapist
 
 
 @login_required
-def listing(request):
+def home(request):
+    if not request.user.has_perm('therapist.view_therapist'):
+        messages.error(request, 'No tienes el permiso para ver terapeutas.')
+        return redirect(reverse('common:home'))
+
     context = {
         'therapist': Therapist.objects.all()
     }
-    return render(request, 'list_therapist.html', context=context)
+
+    return render(request, 'therapist/home.html', context=context)
 
 
 @login_required
 def add(request):
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.has_perm('therapist.add_therapist'):
+        messages.error(
+            request, 'No tienes el permiso para agregar terapeutas.')
         return redirect(reverse('therapist:home'))
 
     if request.method == 'POST':
-        form = eacherForm(request.POST)
+        form = TherapistForm(request.POST)
+
         if form.is_valid():
-            therapist = form.save()
-            messages.success(request, 'Successfully added therapist!')
+            form.save()
+            messages.success(
+                request, f'Se agrego el terapeuta "{form.cleaned_data.get("name")}" con éxito.')
             return redirect(reverse('therapist:home'))
+
         else:
             messages.error(
-                request, 'Failed to add therapist. Please ensure the form is valid.')
+                request, 'No se pudo agregar el terapeuta. Por favor revisa los datos.')
+
     else:
         form = TherapistForm()
 
     context = {
         'form': form
     }
-    return render(request, 'add_therapist.html', context)
+
+    return render(request, 'therapist/add.html', context)
 
 
 @login_required
 def edit(request, pk):
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.has_perm('therapist.change_therapist'):
+        messages.error(request, 'No tienes el permiso para editar terapeutas.')
         return redirect(reverse('therapist:home'))
 
     therapist = get_object_or_404(Therapist, pk=pk)
 
     if request.method == 'POST':
         form = TherapistForm(request.POST, instance=therapist)
+
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated therapist!')
+            messages.success(
+                request, f'Se edito el terapeuta "{form.cleaned_data.get("name")}" con éxito.')
             return redirect(reverse('therapist:home'))
+
         else:
             messages.error(
-                request, 'Failed to update therapist. Please ensure the form is valid.')
+                request, 'No se pudo actualizar el terapeuta. Por favor revisa los datos.')
+
     else:
         form = TherapistForm(instance=therapist)
-        messages.info(request, f'You are editing {therapist.title}')
 
     context = {
         'form': form,
         'therapist': therapist,
     }
-    return render(request, 'edit_therapist.html', context)
+
+    return render(request, 'therapist/edit.html', context)
 
 
 @login_required
 def delete(request, pk):
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.has_perm('therapist.delete_therapist'):
+        messages.error(request, 'No tienes el permiso para borrar terapeutas.')
         return redirect(reverse('therapist:home'))
 
     therapist = get_object_or_404(Therapist, pk=pk)
     therapist.delete()
-    messages.success(request, 'therapist deleted!')
+    messages.success(
+        request, f'El terapeuta "{therapist.name}" fue eliminado.')
+
     return redirect(reverse('therapist:home'))

@@ -7,72 +7,88 @@ from .models import Content
 
 
 @login_required
-def listing(request):
+def home(request):
+    if not request.user.has_perm('content.view_content'):
+        messages.error(request, 'No tienes el permiso para ver contenidos.')
+        return redirect(reverse('common:home'))
+
     context = {
         'content': Content.objects.all()
     }
-    return render(request, 'list_content.html', context=context)
+
+    return render(request, 'content/home.html', context=context)
 
 
 @login_required
 def add(request):
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.has_perm('content.add_content'):
+        messages.error(
+            request, 'No tienes el permiso para agregar contenidos.')
         return redirect(reverse('content:home'))
 
     if request.method == 'POST':
         form = ContentForm(request.POST)
+
         if form.is_valid():
-            content = form.save()
-            messages.success(request, 'Successfully added content!')
+            form.save()
+            messages.success(
+                request, f'Se agrego el contenido "{form.cleaned_data.get("title")}" con éxito.')
             return redirect(reverse('content:home'))
+
         else:
             messages.error(
-                request, 'Failed to add content. Please ensure the form is valid.')
+                request, 'No se pudo agregar el contenido. Por favor revisa los datos.')
+
     else:
         form = ContentForm()
 
     context = {
         'form': form
     }
-    return render(request, 'add_content.html', context)
+
+    return render(request, 'content/add.html', context)
 
 
 @login_required
 def edit(request, pk):
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.has_perm('content.change_content'):
+        messages.error(request, 'No tienes el permiso para editar contenidos.')
         return redirect(reverse('content:home'))
 
     content = get_object_or_404(Content, pk=pk)
 
     if request.method == 'POST':
         form = ContentForm(request.POST, instance=content)
+
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated content!')
+            messages.success(
+                request, f'Se edito el contenido "{form.cleaned_data.get("title")}" con éxito.')
             return redirect(reverse('content:home'))
+
         else:
             messages.error(
-                request, 'Failed to update content. Please ensure the form is valid.')
+                request, 'No se pudo actualizar el contenido. Por favor revisa los datos.')
+
     else:
         form = ContentForm(instance=content)
-        messages.info(request, f'You are editing {content.title}')
 
     context = {
         'form': form,
         'content': content,
     }
-    return render(request, 'edit_content.html', context)
+
+    return render(request, 'content/edit.html', context)
 
 
 @login_required
 def delete(request, pk):
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.has_perm('content.delete_content'):
+        messages.error(request, 'No tienes el permiso para borrar contenidos.')
         return redirect(reverse('content:home'))
 
     content = get_object_or_404(Content, pk=pk)
     content.delete()
-    messages.success(request, 'Content deleted!')
+    messages.success(request, f'El contenido "{content.title}" fue eliminado.')
+
     return redirect(reverse('content:home'))

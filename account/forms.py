@@ -7,9 +7,9 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(
         label=_("Usuario"),
         widget=forms.TextInput({
-            'placeholder': _('usuario')}))
+            'placeholder': _('Usuario')}))
 
     password = forms.CharField(
         label=_("Contraseña"),
         widget=forms.PasswordInput({
-            'placeholder': _('contraseña')}))
+            'placeholder': _('Contraseña')}))

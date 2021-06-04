@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% load i18n static %} {% block content %}
+<!--Contenedor principal main con 5 secciones-->
+<main>
+  <article>
+    <section>
+      <div id="seccionUno" class="container">
+        <div>
+          <h2>{% trans "Nuestro proyecto se llama Bookmotion Kids y consiste en:" %}</h2>
+          <h3>{% trans "Cuentos cortos animados." %}</h3>
+          <ul>
+            <li>
+              {% trans "Primero diseñando los personajes a mano alzada y después programados en Scratch." %}
+            </li>
+          </ul>
+
+          <h3>{% trans "Tablero botones tipo arcade." %}</h3>
+          <ul>
+            <li>
+              {% trans "El prototipo se está construyendo con botones de colores tipo arcade que se iluminan de acuerdo con la selección que hacen según la emoción con la que se identifican después de ver el cuento animado." %}
+            </li>
+            <li>
+              {% trans "Este tablero manda por wifi la información del color que seleccionó a un servicio en internet que registra el resultado, vinculando al alumno con el video y la emoción seleccionada." %}
+            </li>
+          </ul>
+
+          <h3>{% trans "Página web." %}</h3>
+          <ul>
+            <li>
+              {% trans "El prototipo se está construyendo con botones de colores tipo arcade que se iluminan de acuerdo con la selección que hacen según la emoción con la que se identifican después de ver el cuento animado." %}
+            </li>
+            <li>
+              {% trans "Este tablero manda por wifi la información del color que seleccionó a un servicio en internet que registra el resultado, vinculando al alumno con el video y la emoción seleccionada." %}
+            </li>
+          </ul>
+
+          <p>
+            {% trans "Nuestro objetivo es que los niños más pequeños identifiquen las emociones básicas de forma dinámica, además de ser una herramienta que beneficiará a nuestros alumnos con necesidades educativas especiales." %}
+          </p>
+        </div>
+        <div id="foto">
+          <img
+            src="{% static 'images/iste2021.jpg' %}"
+            alt="logotipo"
+            width="600px"
+          />
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock %} {% block scripts %} {% endblock %}

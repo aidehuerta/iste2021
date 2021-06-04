@@ -13,11 +13,4 @@ class ContentForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'size': 30}),
             'url': forms.TextInput(attrs={'size': 60}),
             'description': forms.TextInput(attrs={'size': 60}),
-            'emotion': forms.Select(attrs={'class': 'form-text-input'}),
         }
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        emotions = Emotion.objects.all()
-        emotions_display_name = [(_.id, _.name) for _ in emotions]
-        self.fields['emotion'].choices = emotions_display_name
