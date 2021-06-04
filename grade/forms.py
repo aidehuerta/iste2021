@@ -13,7 +13,6 @@ class GradeForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'size': 30}),
             'teacher': forms.Select(attrs={'class': 'form-text-input'}),
-            'therapist': forms.Select(attrs={'class': 'form-text-input'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -24,7 +23,3 @@ class GradeForm(forms.ModelForm):
         teacher = Teacher.objects.all()
         teacher_display_name = [(_.id, _.name) for _ in teacher]
         self.fields['teacher'].choices = teacher_display_name
-
-        therapist = Therapist.objects.all()
-        therapist_display_name = [(_.id, _.name) for _ in therapist]
-        self.fields['therapist'].choices = therapist_display_name

@@ -10,8 +10,6 @@ class Grade(BaseModel):
     grade = models.SmallIntegerField('Grado', null=True)
     teacher = models.ForeignKey(
         'teacher.Teacher', verbose_name='Maestro', on_delete=models.DO_NOTHING, null=True)
-    therapist = models.ForeignKey(
-        'therapist.Therapist', verbose_name='Terapista', on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self) -> str:
         return f'{self.name} - {self.grade}'

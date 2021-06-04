@@ -31,7 +31,7 @@ class Session(BaseModel):
     """ Sesiones """
 
     student = models.ForeignKey(
-        'student.Student', verbose_name='Paciente', on_delete=models.DO_NOTHING)
+        'student.Student', verbose_name='Estudiante', on_delete=models.DO_NOTHING)
     content = models.ForeignKey(
         'content.Content', verbose_name='Contenido', on_delete=models.DO_NOTHING)
     teacher = models.ForeignKey(
