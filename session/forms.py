@@ -41,5 +41,6 @@ class SessionForm(forms.ModelForm):
         self.fields['teacher'].choices = teacher_display_name
 
         emotions = Emotion.objects.all()
-        emotions_display_name = [(_.id, _.name) for _ in emotions]
+        emotions_display_name = [(None, '')]
+        emotions_display_name += [(_.id, _.name) for _ in emotions]
         self.fields['emotion'].choices = emotions_display_name
