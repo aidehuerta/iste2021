@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-07 06:33-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: account/forms.py:8 account/forms.py:10
+msgid "Usuario"
+msgstr ""
+
+#: account/forms.py:13 account/forms.py:15
+msgid "Contraseña"
+msgstr ""
+
+#: account/templates/account/login.html:62
+msgid "Iniciar Sesión"
+msgstr ""
+
+#: account/templates/account/login.html:67
+msgid "Por favor verifique su usuario y contraseña."
+msgstr ""
+
+#: account/templates/account/logout.html:17
+msgid "Desconectado"
+msgstr ""
+
+#: account/templates/account/logout.html:18
+msgid "Ingresar de nuevo"
+msgstr ""
+
+#: common/templates/base.html:71 common/templates/base2.html:61
+msgid "Principal"
+msgstr ""
+
+#: common/templates/base.html:75
+msgid "Descripción"
+msgstr ""
+
+#: common/templates/base.html:80
+msgid "Nuestro colegio"
+msgstr ""
+
+#: common/templates/base.html:85
+msgid "Derechos reservados."
+msgstr ""
+
+#: common/templates/base2.html:64
+msgid "Contenidos"
+msgstr ""
+
+#: common/templates/base2.html:65
+msgid "Diagnósticos"
+msgstr ""
+
+#: common/templates/base2.html:66
+msgid "Grupos"
+msgstr ""
+
+#: common/templates/base2.html:67
+msgid "Sesiones"
+msgstr ""
+
+#: common/templates/base2.html:68
+msgid "Estudiantes"
+msgstr ""
+
+#: common/templates/base2.html:69
+msgid "Maestros"
+msgstr ""
+
+#: common/templates/base2.html:70
+msgid "Terapeutas"
+msgstr ""
+
+#: common/templates/base2.html:73
+msgid "Usuarios"
+msgstr ""
+
+#: common/templates/base2.html:76
+msgid "Salir"
+msgstr ""
+
+#: common/templates/common/description.html:8
+msgid "Nuestro proyecto se llama Bookmotion Kids y consiste en:"
+msgstr ""
+
+#: common/templates/common/description.html:9
+msgid "Cuentos cortos animados."
+msgstr ""
+
+#: common/templates/common/description.html:12
+msgid ""
+"Primero diseñando los personajes a mano alzada y después programados en "
+"Scratch."
+msgstr ""
+
+#: common/templates/common/description.html:16
+msgid "Tablero botones tipo arcade."
+msgstr ""
+
+#: common/templates/common/description.html:19
+#: common/templates/common/description.html:29
+msgid ""
+"El prototipo se está construyendo con botones de colores tipo arcade que se "
+"iluminan de acuerdo con la selección que hacen según la emoción con la que "
+"se identifican después de ver el cuento animado."
+msgstr ""
+
+#: common/templates/common/description.html:22
+#: common/templates/common/description.html:32
+msgid ""
+"Este tablero manda por wifi la información del color que seleccionó a un "
+"servicio en internet que registra el resultado, vinculando al alumno con el "
+"video y la emoción seleccionada."
+msgstr ""
+
+#: common/templates/common/description.html:26
+msgid "Página web."
+msgstr ""
+
+#: common/templates/common/description.html:37
+msgid ""
+"Nuestro objetivo es que los niños más pequeños identifiquen las emociones "
+"básicas de forma dinámica, además de ser una herramienta que beneficiará a "
+"nuestros alumnos con necesidades educativas especiales."
+msgstr ""
+
+#: common/templates/common/index.html:9
+msgid "¿Qué es inteligencia emocional?"
+msgstr ""
+
+#: common/templates/common/index.html:11
+msgid ""
+"Existen diversos autores que describen el concepto de inteligencia "
+"emocional, uno de los pioneros, es el Psicólogo y escritor Goleman, D (2010, "
+"p 90) el cual la describe como “la capacidad de reconocer nuestros propios "
+"sentimientos y los de los demás, de motivarnos y de manejar adecuadamente "
+"las relaciones”."
+msgstr ""
+
+#: common/templates/common/index.html:14
+msgid "Por su parte"
+msgstr ""
+
+#: common/templates/common/index.html:20
+msgid ""
+"presenta una serie de competencias emocionales, estas competencias son las "
+"siguientes: Conciencia emocional, regulación emocional, autonomía emocional, "
+"competencia social y competencias para la vida y el bienestar."
+msgstr ""
+
+#: common/templates/common/index.html:23
+msgid "Según este autor,"
+msgstr ""
+
+#: common/templates/common/index.html:29
+msgid ""
+"la inteligencia emocional consiste en la habilidad de manejar los "
+"sentimientos y emociones, discriminar entre ellos y utilizar estos "
+"conocimientos para dirigir los propios pensamientos y acciones (Bisquerra, "
+"R. 2000: 144)."
+msgstr ""
+
+#: common/templates/common/index.html:32
+msgid "¿Por qué es importante la inteligencia emocional?"
+msgstr ""
+
+#: common/templates/common/index.html:34
+msgid ""
+"La inteligencia emocional es una competencia que ayuda a la adaptación, "
+"motivación, e inserción social, por ello se considera importante la "
+"implementación de la educación emocional en etapas tempranas como el "
+"preescolar, para que el niño identifique y reconozca sus emociones y aprenda "
+"a regularlas, tanto en el ámbito escolar como en el contexto social. En las "
+"diferentes etapas el niño se enfrentará a diversas situaciones que pondrán a "
+"prueba su adaptación y tolerancia a la frustración, y si cuenta con las "
+"herramientas necesarias para afrontar estas situaciones se contribuirá a su "
+"crecimiento."
+msgstr ""
+
+#: common/templates/common/index.html:44
+msgid "Sobre nosotros"
+msgstr ""
+
+#: common/templates/common/index.html:46
+msgid ""
+"Somos un grupo de alumnos 6º Semestre de HS el cual está interesado en "
+"realizar un proyecto que propicie las habilidades básicas de la inteligencia "
+"emocional, mostrando una situación de aprendizaje a través de cuentos para "
+"que los alumnos de la sección de preescolar identifiquen las diferentes "
+"emociones que están experimentando con la historia del cuento."
+msgstr ""
+
+#: common/templates/common/index.html:49
+msgid ""
+"Tuvimos el apoyo del departamento psicopedagógico con un taller de "
+"inteligencia emocional, cuyo objetivo fue proporcionarnos de manera "
+"vivencial, herramientas de alfabetización, conciencia y expresión emocional "
+"a través del cuerpo y la atención plena; Recibiendo también el apoyo por "
+"parte del área de tecnología de nuestro colegio para desarrollar la "
+"programación y mecanismo del prototipo."
+msgstr ""
+
+#: common/templates/common/index.html:51
+msgid "Descripción prototipo"
+msgstr ""
+
+#: common/templates/common/index.html:56
+msgid "Su navegador no soporta videos"
+msgstr ""
+
+#: common/templates/common/index.html:63
+msgid "Conoce a los creadores del proyecto"
+msgstr ""
+
+#: iste2021/settings.py:148
+msgid "Español"
+msgstr ""
+
+#: iste2021/settings.py:149
+msgid "English"
+msgstr ""
+
+#: iste2021/urls.py:8
+msgid "Book Motion Kids Administración"
+msgstr ""
+
+#: iste2021/urls.py:9
+msgid "Book Motion Kids Portal de Administración"
+msgstr ""
+
+#: iste2021/urls.py:10
+msgid "Bienvenido al portal de Book Motion Kids"
+msgstr ""
