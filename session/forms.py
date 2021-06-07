@@ -18,7 +18,6 @@ class SessionForm(forms.ModelForm):
             'student': forms.Select(attrs={'class': 'form-text-input'}),
             'content': forms.Select(attrs={'class': 'form-text-input'}),
             'teacher': forms.Select(attrs={'class': 'form-text-input'}),
-            'therapist': forms.Select(attrs={'class': 'form-text-input'}),
             'emotion': forms.Select(attrs={'class': 'form-text-input'}),
             'notes': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
             'observations': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
@@ -26,6 +25,8 @@ class SessionForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        self.fields['emotion'].required = False
 
         student = Student.objects.all()
         student_display_name = [(_.id, _.name) for _ in student]
@@ -38,10 +39,6 @@ class SessionForm(forms.ModelForm):
         teacher = Teacher.objects.all()
         teacher_display_name = [(_.id, _.name) for _ in teacher]
         self.fields['teacher'].choices = teacher_display_name
-
-        therapist = Therapist.objects.all()
-        therapist_display_name = [(_.id, _.name) for _ in therapist]
-        self.fields['therapist'].choices = therapist_display_name
 
         emotions = Emotion.objects.all()
         emotions_display_name = [(_.id, _.name) for _ in emotions]

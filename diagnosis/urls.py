@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import add, delete, edit, home
 
-app_name = 'grade'
+app_name = 'diagnosis'
 
 urlpatterns = [
     path('', home, name='home'),

@@ -5,14 +5,14 @@
       <li class="breadcrumb-item">
         <a href="{% url 'common:home' %}">Principal</a>
       </li>
-      <li class="breadcrumb-item active" aria-current="page">Grados</li>
+      <li class="breadcrumb-item active" aria-current="page">Diagnósticos</li>
     </ol>
   </nav>
 
   <div class="container-fluid mb-5">
     <div class="row">
       <div class="col-12 col-md-12">
-        <h2 class="logo-font mb-4">Listado de Grados</h2>
+        <h2 class="logo-font mb-4">Listado de Diagnósticos</h2>
         <hr />
       </div>
     </div>
@@ -22,11 +22,11 @@
     {% endfor %}
 
     <div class="row">
-      {% for c in grade %}
+      {% for d in diagnosis %}
       <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2">
-        <a href="{% url 'grade:edit' c.id %}">
+        <a href="{% url 'diagnosis:edit' d.id %}">
           <div class="card border-0">
-            <div class="card-video-title">{{ c.name }}</div>
+            <div class="card-video-title">{{ d.name }}</div>
           </div>
         </a>
       </div>
@@ -38,7 +38,7 @@
     <div class="row">
       <div class="col-12 col-md-12">
         <div class="col-12 col-md-12">
-          <a href="{% url 'grade:add' %}"
+          <a href="{% url 'diagnosis:add' %}"
             ><button class="btn btn-outline-success rounded-0" type="submit">
               Agregar
             </button></a

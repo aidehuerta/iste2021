@@ -6,7 +6,7 @@
         <a href="{% url 'common:home' %}">Principal</a>
       </li>
       <li class="breadcrumb-item active">
-        <a href="{% url 'grade:home' %}">Grados</a>
+        <a href="{% url 'content:home' %}">Contenidos</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">Editar</li>
     </ol>
@@ -15,7 +15,7 @@
   <div class="container-fluid mb-5">
     <div class="row">
       <div class="col-12 col-md-12">
-        <h2 class="logo-font mb-4">Editar Grado</h2>
+        <h2 class="logo-font mb-4">Editar Contenidos</h2>
         <hr />
       </div>
     </div>
@@ -29,7 +29,7 @@
       <div class="col-6 col-md-6">
         <form
           method="POST"
-          action="{% url 'grade:edit' grade.id %}"
+          action="{% url 'content:edit' content.id %}"
           class="form mb-2"
           enctype="multipart/form-data"
         >
@@ -40,12 +40,12 @@
           <div>
             <a
               class="btn btn-outline-dark rounded-0"
-              href="{% url 'grade:home' %}"
+              href="{% url 'content:home' %}"
               >Cancelar</a
             >
             <a
               class="btn btn-outline-danger rounded-0"
-              href="{% url 'grade:delete' grade.id %}"
+              href="{% url 'content:delete' content.id %}"
               >Borrar</a
             >
             <button class="btn btn-outline-success rounded-0" type="submit">

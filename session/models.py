@@ -36,10 +36,8 @@ class Session(BaseModel):
         'content.Content', verbose_name='Contenido', on_delete=models.DO_NOTHING)
     teacher = models.ForeignKey(
         'teacher.Teacher', verbose_name='Maestro', on_delete=models.DO_NOTHING, null=True)
-    therapist = models.ForeignKey(
-        'therapist.Therapist', verbose_name='Terapista', on_delete=models.DO_NOTHING, null=True)
     emotion = models.ForeignKey(
-        'session.Emotion', verbose_name='Emoción', on_delete=models.DO_NOTHING)
+        'session.Emotion', verbose_name='Emoción', on_delete=models.DO_NOTHING, null=True)
     notes = models.TextField('Notas', blank=True, null=True)
     observations = models.TextField('Observaciones', blank=True, null=True)
 

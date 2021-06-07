@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class GradeConfig(AppConfig):
+class GroupConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'grade'
-    verbose_name = 'Grados'
+    name = 'group'
+    verbose_name = 'Grupos'

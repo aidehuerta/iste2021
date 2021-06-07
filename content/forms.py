@@ -1,7 +1,5 @@
 from django import forms
 
-from session.models import Emotion
-
 from .models import Content
 
 

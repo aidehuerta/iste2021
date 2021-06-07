@@ -1,17 +1,16 @@
 from django import forms
 
 from teacher.models import Teacher
-from therapist.models import Therapist
 
-from .models import Grade
+from .models import Group
 
 
-class GradeForm(forms.ModelForm):
+class GroupForm(forms.ModelForm):
     class Meta:
-        model = Grade
+        model = Group
         fields = '__all__'
         widgets = {
-            'name': forms.TextInput(attrs={'size': 30}),
+            'name': forms.TextInput(attrs={'size': 60}),
             'teacher': forms.Select(attrs={'class': 'form-text-input'}),
         }
 

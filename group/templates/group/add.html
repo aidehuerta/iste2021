@@ -6,7 +6,7 @@
         <a href="{% url 'common:home' %}">Principal</a>
       </li>
       <li class="breadcrumb-item active">
-        <a href="{% url 'grade:home' %}">Grados</a>
+        <a href="{% url 'group:home' %}">Grupos</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">Agregar</li>
     </ol>
@@ -15,7 +15,7 @@
   <div class="container-fluid mb-5">
     <div class="row">
       <div class="col-12 col-md-12">
-        <h2 class="logo-font mb-4">Agregar Grado</h2>
+        <h2 class="logo-font mb-4">Agregar Grupo</h2>
         <hr />
       </div>
     </div>
@@ -29,7 +29,7 @@
       <div class="col-12 col-md-6">
         <form
           method="POST"
-          action="{% url 'grade:add' %}"
+          action="{% url 'group:add' %}"
           class="form mb-2"
           enctype="multipart/form-data"
         >
@@ -40,7 +40,7 @@
           <div>
             <a
               class="btn btn-outline-dark rounded-0"
-              href="{% url 'grade:home' %}"
+              href="{% url 'group:home' %}"
               >Cancelar</a
             >
             <button class="btn btn-outline-success rounded-0" type="submit">

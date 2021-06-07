@@ -1,6 +1,9 @@
+from session.serializers import SessionSerializer
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
+from rest_framework import generics, status
+from rest_framework.response import Response
 
 from .forms import SessionForm
 from .models import Session
@@ -93,3 +96,40 @@ def delete(request, pk):
         request, f'La sesión "{session.student} - {session.content}" fue eliminado.')
 
     return redirect(reverse('session:home'))
+
+
+class SetButton(generics.CreateAPIView):
+    queryset = Session.objects.all()
+    serializer_class = SessionSerializer
+
+    def create(self, request, *args, **kwargs):
+        colores = {
+            '1': 'Verde',
+            '2': 'Azul',
+            '3': 'Rojo',
+            '4': 'Amarillo',
+            '5': 'Blanco',
+        }
+
+        boton = self.request.query_params.get('boton')
+
+        sesion = Session.objects.filter(
+            emotion__isnull=True
+        ).order_by(
+            '-id'
+        ).first()
+
+        respuesta = ''
+        if sesion is not None:
+            sesion.emotion_id = int(boton)
+            sesion.save()
+            respuesta = f'Sesión {sesion}. '
+
+        else:
+            respuesta = 'No hay sesión esperando emoción. '
+
+        respuesta += colores.get(boton, 'El color no es reconocido.')
+
+        print(boton, respuesta)
+
+        return Response(f'----{respuesta}-----', status=status.HTTP_201_CREATED)
