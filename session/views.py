@@ -98,11 +98,11 @@ def delete(request, pk):
     return redirect(reverse('session:home'))
 
 
-class SetButton(generics.CreateAPIView):
+class SetButton(generics.ListAPIView):
     queryset = Session.objects.all()
     serializer_class = SessionSerializer
 
-    def create(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         colores = {
             '1': 'Verde',
             '2': 'Azul',
