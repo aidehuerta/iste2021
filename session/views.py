@@ -132,4 +132,4 @@ class SetButton(generics.ListAPIView):
 
         print(boton, respuesta)
 
-        return Response(f'----{respuesta}-----', status=status.HTTP_201_CREATED)
+        return Response(f'----{respuesta}-----', status=status.HTTP_200_OK)
