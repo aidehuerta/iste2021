@@ -148,27 +148,30 @@ class SetButton(generics.ListAPIView):
         }
 
         boton = kwargs.get('boton')
+        if boton is None:
+            boton = request.query_params.get('boton')
 
-        sesion = Session.objects.filter(
-            emotion__isnull=True
-        ).order_by(
-            '-id'
-        ).first()
+        if boton is not None:
+            sesion = Session.objects.filter(
+                emotion__isnull=True
+            ).order_by(
+                '-id'
+            ).first()
 
-        respuesta = ''
-        if sesion is not None:
-            sesion.emotion_id = int(boton)
-            sesion.save()
-            respuesta = f'Sesión {sesion}. '
+            respuesta = ''
+            if sesion is not None:
+                sesion.emotion_id = int(boton)
+                sesion.save()
+                respuesta = f'Sesión {sesion}. '
 
-        else:
-            respuesta = 'No hay sesión esperando emoción. '
+            else:
+                respuesta = 'No hay sesión esperando emoción. '
 
-        respuesta += colores.get(boton, 'El color no es reconocido.')
+            respuesta += colores.get(boton, 'El color no es reconocido.')
 
-        print(boton, respuesta)
+            print(boton, respuesta)
 
-        return Response(f'----{respuesta}-----', status=status.HTTP_200_OK)
+            return Response(f'----{respuesta}-----', status=status.HTTP_200_OK)
 
 
 class GetButton(generics.ListAPIView):
