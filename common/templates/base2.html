@@ -56,21 +56,22 @@
     </header>
 
     <div class="sidenav">
-      <br>
+      <br />
       <p>
-        <a href="{% url 'common:home' %}">{% trans "Principal" %}</a>
-      </p>
-      <p>
+        {% if perms.content.view_content %}
         <a href="{% url 'content:home' %}">{% trans "Contenidos" %}</a>
+        {% endif %} {% if perms.diagnosis.view_diagnosis %}
         <a href="{% url 'diagnosis:home' %}">{% trans "Diagnósticos" %}</a>
+        {% endif %} {% if perms.group.view_group %}
         <a href="{% url 'group:home' %}">{% trans "Grupos" %}</a>
+        {% endif %} {% if perms.session.view_session %}
         <a href="{% url 'session:home' %}">{% trans "Sesiones" %}</a>
+        {% endif %} {% if perms.student.view_student %}
         <a href="{% url 'student:home' %}">{% trans "Estudiantes" %}</a>
-        <a href="{% url 'teacher:home' %}">{% trans "Maestros" %}</a>
-        <a href="{% url 'therapist:home' %}">{% trans "Terapeutas" %}</a>
+        {% endif %}
       </p>
       <p>
-        <a href="{% url 'admin:index' %}">{% trans "Usuarios" %}</a>
+        <a href="{% url 'admin:index' %}">{{ request.user.username }}</a>
       </p>
       <p>
         <a href="{% url 'account:logout' %}">{% trans "Salir" %}</a>
@@ -78,5 +79,10 @@
     </div>
 
     {% block content %} {% endblock %} {% block scripts %} {% endblock %}
+    <script>
+      setTimeout(function () {
+        $(".alert").addClass("d-none");
+      }, 7000);
+    </script>
   </body>
 </html>

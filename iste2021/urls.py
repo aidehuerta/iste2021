@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.utils.translation import ugettext_lazy as _
 
-from session.views import SetButton
+from session.views import SetButton, GetButton
 
 admin.site.site_header = _('Book Motion Kids Administración')
 admin.site.site_title = _('Book Motion Kids Portal de Administración')
@@ -17,13 +17,13 @@ urlpatterns = [
     path('group/', include('group.urls')),
     path('session/', include('session.urls')),
     path('student/', include('student.urls')),
-    path('teacher/', include('teacher.urls')),
-    path('therapist/', include('therapist.urls')),
 
     path('admin/', admin.site.urls),
 
     path('api/set_button/', SetButton.as_view(),
          name='api_set_button'),
+    path('api/get_button/<int:session_id>/', GetButton.as_view(),
+         name='api_get_button'),
 ]
 
 if settings.DEBUG:

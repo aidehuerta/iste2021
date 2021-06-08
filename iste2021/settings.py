@@ -58,8 +58,6 @@ LOCAL_APPS = [
     'group',
     'session',
     'student',
-    'teacher',
-    'therapist',
 ]
 
 MIDDLEWARE = [
@@ -204,9 +202,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
     ),
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework_jwt.authentication.BasicAuthentication',
-    # ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),

@@ -51,13 +51,14 @@ def add(request):
 
 @login_required
 def edit(request, pk):
-    if not request.user.has_perm('content.change_content'):
-        messages.error(request, 'No tienes el permiso para editar contenidos.')
-        return redirect(reverse('content:home'))
-
     content = get_object_or_404(Content, pk=pk)
 
     if request.method == 'POST':
+        if not request.user.has_perm('content.change_content'):
+            messages.error(
+                request, 'No tienes el permiso para editar contenidos.')
+            return redirect(reverse('content:home'))
+
         form = ContentForm(request.POST, instance=content)
 
         if form.is_valid():

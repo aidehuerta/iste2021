@@ -57,25 +57,5 @@
       <div id="youtube" class="col-4 col-md-4"></div>
     </div>
   </div>
-  {% endblock %} {% block scripts %}
-  <script>
-    $(document).ready(function ($) {
-      $("#id_url").on("change", function () {
-        if ($(this).val() === "") {
-          $("#youtube").hide();
-        } else {
-          var ifrm = document.createElement("iframe");
-          ifrm.src = $(this).val();
-          ifrm.width = "560";
-          ifrm.height = "315";
-          ifrm.frameborder = "0";
-          ifrm.scrolling = "no";
-          $("#youtube").html(ifrm).show();
-        }
-      });
-
-      $("#id_url").change();
-    });
-  </script>
-  {% endblock %}
+  {% endblock %} {% block scripts %} {% endblock %}
 </div>

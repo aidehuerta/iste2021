@@ -51,14 +51,14 @@ def add(request):
 
 @login_required
 def edit(request, pk):
-    if not request.user.has_perm('student.change_student'):
-        messages.error(
-            request, 'No tienes el permiso para editar estudiantes.')
-        return redirect(reverse('student:home'))
-
     student = get_object_or_404(Student, pk=pk)
 
     if request.method == 'POST':
+        if not request.user.has_perm('student.change_student'):
+            messages.error(
+                request, 'No tienes el permiso para editar estudiantes.')
+            return redirect(reverse('student:home'))
+
         form = StudentForm(request.POST, instance=student)
 
         if form.is_valid():

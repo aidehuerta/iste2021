@@ -51,14 +51,14 @@ def add(request):
 
 @login_required
 def edit(request, pk):
-    if not request.user.has_perm('diagnosis.change_diagnosis'):
-        messages.error(
-            request, 'No tienes el permiso para editar diagnósticos.')
-        return redirect(reverse('diagnosis:home'))
-
     diagnosis = get_object_or_404(Diagnosis, pk=pk)
 
     if request.method == 'POST':
+        if not request.user.has_perm('diagnosis.change_diagnosis'):
+            messages.error(
+                request, 'No tienes el permiso para editar diagnósticos.')
+            return redirect(reverse('diagnosis:home'))
+
         form = DiagnosisForm(request.POST, instance=diagnosis)
 
         if form.is_valid():

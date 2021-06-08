@@ -8,7 +8,7 @@ from .models import Group
 
 @login_required
 def home(request):
-    if not request.user.has_perm('Grgup.view_group'):
+    if not request.user.has_perm('group.view_group'):
         messages.error(request, 'No tienes el permiso para ver los grupos.')
         return redirect(reverse('common:home'))
 
@@ -51,13 +51,14 @@ def add(request):
 
 @login_required
 def edit(request, pk):
-    if not request.user.has_perm('group.change_group'):
-        messages.error(request, 'No tienes el permiso para editar los grupos.')
-        return redirect(reverse('group:home'))
-
     group = get_object_or_404(Group, pk=pk)
 
     if request.method == 'POST':
+        if not request.user.has_perm('group.change_group'):
+            messages.error(
+                request, 'No tienes el permiso para editar los grupos.')
+            return redirect(reverse('group:home'))
+
         form = GroupForm(request.POST, instance=group)
 
         if form.is_valid():

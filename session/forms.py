@@ -1,13 +1,13 @@
 from django import forms
-from django.forms.widgets import NumberInput
+from django.contrib.auth import get_user_model
 
 from content.models import Content
 from session.models import Emotion
 from student.models import Student
-from teacher.models import Teacher
-from therapist.models import Therapist
 
 from .models import Session
+
+User = get_user_model()
 
 
 class SessionForm(forms.ModelForm):
@@ -17,16 +17,17 @@ class SessionForm(forms.ModelForm):
         widgets = {
             'student': forms.Select(attrs={'class': 'form-text-input'}),
             'content': forms.Select(attrs={'class': 'form-text-input'}),
-            'teacher': forms.Select(attrs={'class': 'form-text-input'}),
-            'emotion': forms.Select(attrs={'class': 'form-text-input'}),
-            'notes': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
-            'observations': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
+            'user': forms.Select(attrs={'class': 'form-text-input emotion white'}),
+            'notes': forms.Textarea(attrs={'cols': 63, 'rows': 5}),
+            'observations': forms.Textarea(attrs={'cols': 63, 'rows': 5}),
         }
 
     def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
         self.fields['emotion'].required = False
+        self.fields['emotion'].disabled = True
 
         student = Student.objects.all()
         student_display_name = [(_.id, _.name) for _ in student]
@@ -36,11 +37,27 @@ class SessionForm(forms.ModelForm):
         content_display_name = [(_.id, _.title) for _ in content]
         self.fields['content'].choices = content_display_name
 
-        teacher = Teacher.objects.all()
-        teacher_display_name = [(_.id, _.name) for _ in teacher]
-        self.fields['teacher'].choices = teacher_display_name
+        user_display_name = [(user.id, f'{user.first_name} {user.last_name}')]
+        self.fields['user'].choices = user_display_name
 
-        emotions = Emotion.objects.all()
-        emotions_display_name = [(None, '')]
-        emotions_display_name += [(_.id, _.name) for _ in emotions]
-        self.fields['emotion'].choices = emotions_display_name
+        form_control = 'form-text-input emotion '
+        if self.instance.emotion_id == 1:
+            form_control += 'green'
+        elif self.instance.emotion_id == 2:
+            form_control += 'blue'
+        elif self.instance.emotion_id == 3:
+            form_control += 'red'
+        elif self.instance.emotion_id == 4:
+            form_control += 'yellow'
+        else:
+            form_control += 'white'
+        self.fields['emotion'].widget.attrs.update({'class': form_control})
+
+
+class SessionApplyForm(forms.ModelForm):
+    class Meta:
+        model = Session
+        fields = ('emotion',)
+        widgets = {
+            'emotion': forms.Select(attrs={'type': 'hidden'}),
+        }
