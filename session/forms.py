@@ -1,3 +1,4 @@
+from common.models import Employee
 from django import forms
 from django.contrib.auth import get_user_model
 
@@ -29,7 +30,11 @@ class SessionForm(forms.ModelForm):
         self.fields['emotion'].required = False
         self.fields['emotion'].disabled = True
 
+        employee = Employee.objects.filter(user=user).first()
+
         student = Student.objects.all()
+        if employee is not None and employee.department == 'DO':
+            student = student.filter(group__user=user)
         student_display_name = [(_.id, _.name) for _ in student]
         self.fields['student'].choices = student_display_name
 
@@ -37,7 +42,12 @@ class SessionForm(forms.ModelForm):
         content_display_name = [(_.id, _.title) for _ in content]
         self.fields['content'].choices = content_display_name
 
-        user_display_name = [(user.id, f'{user.first_name} {user.last_name}')]
+        if self.instance.id is not None:
+            user_display_name = [
+                (self.instance.user.id, f'{self.instance.user.first_name} {self.instance.user.last_name}')]
+        else:
+            user_display_name = [
+                (user.id, f'{user.first_name} {user.last_name}')]
         self.fields['user'].choices = user_display_name
 
         form_control = 'form-text-input emotion '

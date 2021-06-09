@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render, reverse
 from rest_framework import generics, status
 from rest_framework.response import Response
 
+from common.models import Employee
 from session.serializers import SessionSerializer
 
 from .forms import SessionApplyForm, SessionForm
@@ -17,8 +18,13 @@ def home(request):
         messages.error(request, 'No tienes el permiso para ver las sesiones.')
         return redirect(reverse('common:home'))
 
+    employee = Employee.objects.filter(user=request.user).first()
+    sessions = Session.objects.all()
+    if employee is not None and employee.department == 'DO':
+        sessions = sessions.filter(user=request.user)
+
     context = {
-        'session': Session.objects.all()
+        'session': sessions
     }
 
     return render(request, 'session/home.html', context=context)

@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
+from common.models import Employee
+
 from .forms import StudentForm
 from .models import Student
 
@@ -12,8 +14,13 @@ def home(request):
         messages.error(request, 'No tienes el permiso para ver estudiantes.')
         return redirect(reverse('common:home'))
 
+    employee = Employee.objects.filter(user=request.user).first()
+    students = Student.objects.all()
+    if employee is not None and employee.department == 'DO':
+        students = students.filter(group__user=request.user)
+
     context = {
-        'student': Student.objects.all()
+        'student': students
     }
 
     return render(request, 'student/home.html', context=context)

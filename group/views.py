@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
+from common.models import Employee
+
 from .forms import GroupForm
 from .models import Group
 
@@ -12,8 +14,13 @@ def home(request):
         messages.error(request, 'No tienes el permiso para ver los grupos.')
         return redirect(reverse('common:home'))
 
+    employee = Employee.objects.filter(user=request.user).first()
+    groups = Group.objects.all()
+    if employee is not None and employee.department == 'DO':
+        groups = groups.filter(user=request.user)
+
     context = {
-        'group': Group.objects.all()
+        'group': groups
     }
 
     return render(request, 'group/home.html', context=context)
