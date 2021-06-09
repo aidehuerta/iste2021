@@ -77,7 +77,6 @@ header {
 #seccionUno {
   display: flex;
   padding: 20px 0;
-
 }
 
 #seccionUno div {
@@ -427,23 +426,23 @@ label {
   color: #000000;
 }
 
-.emotion.green {
+.emotion.green, .Verde {
   background-color: #d4edda;
 }
 
-.emotion.blue {
+.emotion.blue , .Azul{
   background-color: #cce5ff;
 }
 
-.emotion.red {
+.emotion.red, .Rojo {
   background-color: #f8d7da;
 }
 
-.emotion.yellow {
+.emotion.yellow, .Amarillo {
   background-color: #fff3cd;
 }
 
-.emotion.white {
+.emotion.white, .Blanco {
   background-color: #ffffff;
 }
 
@@ -455,4 +454,19 @@ label {
 .language-flag {
   height: 20px;
   vertical-align: top;
+}
+
+.report-header {
+  color: #383d41;
+  background-color: #e2e3e5;
+  border-color: #d6d8db;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.report-row {
+  padding: 10px 0;
+  border-bottom: 1px solid #CCCCCC;
 }

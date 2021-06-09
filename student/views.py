@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
 from common.models import Employee
+from session.models import Session
 
 from .forms import StudentForm
 from .models import Student
@@ -100,3 +101,22 @@ def delete(request, pk):
     student.delete()
     messages.success(request, f'El estudiante "{student.name}" fue eliminado.')
     return redirect(reverse('student:home'))
+
+
+@login_required
+def report(request, pk):
+    if not request.user.has_perm('student.view_student'):
+        messages.error(request, 'No tienes el permiso para ver estudiantes.')
+        return redirect(reverse('common:home'))
+
+    student = get_object_or_404(Student, pk=pk)
+    sessions = Session.objects.filter(
+        student=student
+    )
+
+    context = {
+        'student': student,
+        'sessions': sessions,
+    }
+
+    return render(request, 'student/report.html', context=context)
