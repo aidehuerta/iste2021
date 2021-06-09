@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{% load i18n static %} {% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE|default:'es-MX' }}">
+{% load static %}
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,22 +59,22 @@
       <br />
       <p>
         {% if perms.content.view_content %}
-        <a href="{% url 'content:home' %}">{% trans "Contenidos" %}</a>
+        <a href="{% url 'content:home' %}">Contenidos</a>
         {% endif %} {% if perms.diagnosis.view_diagnosis %}
-        <a href="{% url 'diagnosis:home' %}">{% trans "Diagnósticos" %}</a>
+        <a href="{% url 'diagnosis:home' %}">Diagnósticos</a>
         {% endif %} {% if perms.group.view_group %}
-        <a href="{% url 'group:home' %}">{% trans "Grupos" %}</a>
+        <a href="{% url 'group:home' %}">Grupos</a>
         {% endif %} {% if perms.session.view_session %}
-        <a href="{% url 'session:home' %}">{% trans "Sesiones" %}</a>
+        <a href="{% url 'session:home' %}">Sesiones</a>
         {% endif %} {% if perms.student.view_student %}
-        <a href="{% url 'student:home' %}">{% trans "Estudiantes" %}</a>
+        <a href="{% url 'student:home' %}">Estudiantes</a>
         {% endif %}
       </p>
       <p>
         <a href="{% url 'admin:index' %}">{{ request.user.username }}</a>
       </p>
       <p>
-        <a href="{% url 'account:logout' %}">{% trans "Salir" %}</a>
+        <a href="{% url 'account:logout' %}">Salir</a>
       </p>
     </div>
 

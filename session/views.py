@@ -90,6 +90,13 @@ def edit(request, pk):
 @login_required
 def apply(request, pk):
     session = get_object_or_404(Session, pk=pk)
+    video_id = ''
+
+    if session is not None:
+        try:
+            video_id = session.content.url.split('/')[-1]
+        except:
+            pass
 
     if request.method == 'POST':
         if not request.user.has_perm('session.change_session'):
@@ -115,6 +122,7 @@ def apply(request, pk):
     context = {
         'form': form,
         'session': session,
+        'video_id': video_id,
     }
 
     return render(request, 'session/apply.html', context)

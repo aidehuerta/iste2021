@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-from datetime import timedelta
 from pathlib import Path
 
 from decouple import config
-from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'common.middleware.LanguageMiddleware',
 ]
 
 if DEBUG:
@@ -140,12 +140,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'es'
-
 LANGUAGES = (
-    ('es', _('Español')),
-    ('en', _('English')),
+    ('es', 'Español'),
+    ('en', 'English'),
 )
+
+LANGUAGE_CODE = 'es'
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
@@ -190,13 +190,6 @@ CACHES = {
 LOGIN_URL = 'account:login'
 LOGOUT_REDIRECT_URL = 'common:index'
 LOGIN_REDIRECT_URL = 'common:home'
-
-EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
