@@ -6,7 +6,7 @@
         <a href="{% url 'common:home' %}">Principal</a>
       </li>
       <li class="breadcrumb-item active">
-        <a href="{% url 'student:home' %}">Estudiante</a>
+        <a href="{% url 'student:home' %}">Grupo</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">Reporte</li>
     </ol>
@@ -15,7 +15,7 @@
   <div class="container-fluid mb-5">
     <div class="row">
       <div class="col-12 col-md-12">
-        <h2 class="logo-font mb-4">Reporte del estudiante {{ student.name }}</h2>
+        <h2 class="logo-font mb-4">Reporte del grupo {{ group.name }}</h2>
         <hr />
       </div>
     </div>
@@ -24,15 +24,21 @@
       <div class="row">
         <div class="col-11 col-md-11">
           <div class="row report-header">
-            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">Fecha</div>
-            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">Contenido</div>
-            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">Quien aplico</div>
-            <div class="col-sm-6 col-md-1 col-lg-1 col-xl-1">Emoción</div>
-            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">Notas</div>
-            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">Observaciones</div>
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">Estudiante<br/>Fecha</div>
+            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2"><br/>Contenido</div>
+            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2"><br/>Quien aplico</div>
+            <div class="col-sm-6 col-md-1 col-lg-1 col-xl-1"><br/>Emoción</div>
+            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2"><br/>Notas</div>
+            <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2"><br/>Observaciones</div>
           </div>
 
-          {% for s in sessions %}
+          {% for ss in student_sessions %}
+          <div class="row report-row student">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              {{ ss.student.name }}
+            </div>
+          </div>
+          {% for s in ss.sessions %}
           <div class="row report-row">
             <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
               {{ s.created }}
@@ -51,7 +57,7 @@
               {{ s.observations }}
             </div>
           </div>
-          {% endfor %}
+          {% endfor %} {% endfor %}
         </div>
       </div>
     </div>
@@ -61,7 +67,7 @@
         <div class="col-12 col-md-12">
           <a
             class="btn btn-outline-dark rounded-0"
-            href="{% url 'student:edit' student.id %}"
+            href="{% url 'group:edit' group.id %}"
             >Regresar</a
           >
         </div>

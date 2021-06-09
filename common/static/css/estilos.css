@@ -426,23 +426,28 @@ label {
   color: #000000;
 }
 
-.emotion.green, .Verde {
+.emotion.green,
+.Verde {
   background-color: #d4edda;
 }
 
-.emotion.blue , .Azul{
+.emotion.blue,
+.Azul {
   background-color: #cce5ff;
 }
 
-.emotion.red, .Rojo {
+.emotion.red,
+.Rojo {
   background-color: #f8d7da;
 }
 
-.emotion.yellow, .Amarillo {
+.emotion.yellow,
+.Amarillo {
   background-color: #fff3cd;
 }
 
-.emotion.white, .Blanco {
+.emotion.white,
+.Blanco {
   background-color: #ffffff;
 }
 
@@ -464,9 +469,17 @@ label {
   padding: 0.75rem 1.25rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  font-weight: 600;
 }
 
 .report-row {
   padding: 10px 0;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #cccccc;
+}
+
+.report-row.student {
+  font-size: larger;
+  font-weight: 600;
+  padding: 20px 0;
+  border: none;
 }

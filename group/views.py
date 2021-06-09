@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
 from common.models import Employee
+from session.models import Session
+from student.models import Student
 
 from .forms import GroupForm
 from .models import Group
@@ -100,3 +102,31 @@ def delete(request, pk):
     messages.success(request, f'El grupo "{group.name}" fue eliminado.')
 
     return redirect(reverse('group:home'))
+
+
+@login_required
+def report(request, pk):
+    if not request.user.has_perm('group.view_group'):
+        messages.error(request, 'No tienes el permiso para ver grupos.')
+        return redirect(reverse('common:home'))
+
+    group = get_object_or_404(Group, pk=pk)
+    students = Student.objects.filter(
+        group=group)
+
+    student_sessions = []
+    for student in students:
+        sessions = Session.objects.filter(
+            student=student)
+
+        student_sessions.append({
+            'student': student,
+            'sessions': sessions,
+        })
+
+    context = {
+        'group': group,
+        'student_sessions': student_sessions,
+    }
+
+    return render(request, 'group/report.html', context=context)
