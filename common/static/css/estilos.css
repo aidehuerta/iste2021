@@ -389,6 +389,10 @@ footer {
   padding-top: 50px;
 }
 
+label {
+  vertical-align: top;
+}
+
 .alert.debug {
   color: #383d41;
   background-color: #e2e3e5;
@@ -417,4 +421,38 @@ footer {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+}
+
+.emotion {
+  color: #000000;
+}
+
+.emotion.green {
+  background-color: #d4edda;
+}
+
+.emotion.blue {
+  background-color: #cce5ff;
+}
+
+.emotion.red {
+  background-color: #f8d7da;
+}
+
+.emotion.yellow {
+  background-color: #fff3cd;
+}
+
+.emotion.white {
+  background-color: #ffffff;
+}
+
+#emotion-color > h1 {
+  padding-top: 70px;
+  margin: 0 auto;
+}
+
+.language-flag {
+  height: 20px;
+  vertical-align: top;
 }

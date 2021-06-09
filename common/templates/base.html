@@ -57,6 +57,12 @@
 
     <div class="container">
       <div id="InfoContacto">
+        {% if LANGUAGE_CODE == 'es' %}
+          <a href="?lang=en"><img class="language-flag" src="{% static 'images/us_small.png' %}" title="English"></a>
+        {% elif LANGUAGE_CODE == 'en' %}
+          <a href="?lang=es"><img class="language-flag" src="{% static 'images/mx_small.png' %}" title="Español"></a>
+        {% endif %}
+        &nbsp;
         <a href="{% url 'account:login' %}"><i class="far fa-user"></i>Login</a>
       </div>
     </div>

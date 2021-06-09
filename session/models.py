@@ -1,6 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from common.models import BaseModel
+
+User = get_user_model()
 
 color_choices = [
     ('yellow', 'Amarillo'),
@@ -34,8 +37,8 @@ class Session(BaseModel):
         'student.Student', verbose_name='Estudiante', on_delete=models.DO_NOTHING)
     content = models.ForeignKey(
         'content.Content', verbose_name='Contenido', on_delete=models.DO_NOTHING)
-    teacher = models.ForeignKey(
-        'teacher.Teacher', verbose_name='Maestro', on_delete=models.DO_NOTHING, null=True)
+    user = models.ForeignKey(
+        User, verbose_name='Aplica', on_delete=models.DO_NOTHING)
     emotion = models.ForeignKey(
         'session.Emotion', verbose_name='Emoción', on_delete=models.DO_NOTHING, null=True)
     notes = models.TextField('Notas', blank=True, null=True)
