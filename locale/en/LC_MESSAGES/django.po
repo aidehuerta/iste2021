@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 06:33-0500\n"
+"POT-Creation-Date: 2021-06-08 23:00-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,231 +18,235 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: account/forms.py:8 account/forms.py:10
+#: .\account\forms.py:8 .\account\forms.py:10
 msgid "Usuario"
-msgstr ""
+msgstr "User"
 
-#: account/forms.py:13 account/forms.py:15
+#: .\account\forms.py:13 .\account\forms.py:15
 msgid "Contraseña"
-msgstr ""
+msgstr "Password"
 
-#: account/templates/account/login.html:62
+#: .\account\templates\account\login.html:62
 msgid "Iniciar Sesión"
 msgstr ""
 
-#: account/templates/account/login.html:67
+#: .\account\templates\account\login.html:67
 msgid "Por favor verifique su usuario y contraseña."
 msgstr ""
 
-#: account/templates/account/logout.html:17
+#: .\account\templates\account\logout.html:17
 msgid "Desconectado"
 msgstr ""
 
-#: account/templates/account/logout.html:18
+#: .\account\templates\account\logout.html:18
 msgid "Ingresar de nuevo"
 msgstr ""
 
-#: common/templates/base.html:71 common/templates/base2.html:61
+#: .\common\templates\base.html:71 .\common\templates\base2.html:61
 msgid "Principal"
 msgstr ""
 
-#: common/templates/base.html:75
+#: .\common\templates\base.html:75
 msgid "Descripción"
 msgstr ""
 
-#: common/templates/base.html:80
+#: .\common\templates\base.html:80
 msgid "Nuestro colegio"
 msgstr ""
 
-#: common/templates/base.html:85
+#: .\common\templates\base.html:85
 msgid "Derechos reservados."
 msgstr ""
 
-#: common/templates/base2.html:64
+#: .\common\templates\base2.html:64
 msgid "Contenidos"
 msgstr ""
 
-#: common/templates/base2.html:65
+#: .\common\templates\base2.html:65
 msgid "Diagnósticos"
 msgstr ""
 
-#: common/templates/base2.html:66
+#: .\common\templates\base2.html:66
 msgid "Grupos"
 msgstr ""
 
-#: common/templates/base2.html:67
+#: .\common\templates\base2.html:67
 msgid "Sesiones"
 msgstr ""
 
-#: common/templates/base2.html:68
+#: .\common\templates\base2.html:68
 msgid "Estudiantes"
 msgstr ""
 
-#: common/templates/base2.html:69
+#: .\common\templates\base2.html:69
 msgid "Maestros"
 msgstr ""
 
-#: common/templates/base2.html:70
+#: .\common\templates\base2.html:70
 msgid "Terapeutas"
 msgstr ""
 
-#: common/templates/base2.html:73
+#: .\common\templates\base2.html:73
 msgid "Usuarios"
 msgstr ""
 
-#: common/templates/base2.html:76
+#: .\common\templates\base2.html:76
 msgid "Salir"
 msgstr ""
 
-#: common/templates/common/description.html:8
-msgid "Nuestro proyecto se llama Bookmotion Kids y consiste en:"
+#: .\common\templates\common\description.html:8
+msgid "Our project is called  Bookmotion Kids, it is formed by:"
 msgstr ""
 
-#: common/templates/common/description.html:9
-msgid "Cuentos cortos animados."
+#: .\common\templates\common\description.html:9
+msgid "Short animated stories"
 msgstr ""
 
-#: common/templates/common/description.html:12
+#: .\common\templates\common\description.html:12
 msgid ""
-"Primero diseñando los personajes a mano alzada y después programados en "
+"The characters were designed by hand and then, they were programmed on  "
 "Scratch."
 msgstr ""
 
-#: common/templates/common/description.html:16
-msgid "Tablero botones tipo arcade."
+#: .\common\templates\common\description.html:16
+msgid "Keyboard"
 msgstr ""
 
-#: common/templates/common/description.html:19
-#: common/templates/common/description.html:29
+#: .\common\templates\common\description.html:19
 msgid ""
-"El prototipo se está construyendo con botones de colores tipo arcade que se "
-"iluminan de acuerdo con la selección que hacen según la emoción con la que "
-"se identifican después de ver el cuento animado."
+"The prototype keyboard was built using color coded buttons which were arcade type. "
+"They light up according to what the child chooses after experiencing and "
+"identifying an emotion while reading a story. "
 msgstr ""
 
-#: common/templates/common/description.html:22
-#: common/templates/common/description.html:32
+#: .\common\templates\common\description.html:22
 msgid ""
-"Este tablero manda por wifi la información del color que seleccionó a un "
-"servicio en internet que registra el resultado, vinculando al alumno con el "
-"video y la emoción seleccionada."
+"The keyboard sends this information via wifi to an internet service which "
+"registers the result. Consequently, the student will be linked to the video "
+"and the emotion chosen. "
 msgstr ""
 
-#: common/templates/common/description.html:26
-msgid "Página web."
+#: .\common\templates\common\description.html:26
+msgid "Website"
 msgstr ""
 
-#: common/templates/common/description.html:37
+#: .\common\templates\common\description.html:29
 msgid ""
-"Nuestro objetivo es que los niños más pequeños identifiquen las emociones "
-"básicas de forma dinámica, además de ser una herramienta que beneficiará a "
-"nuestros alumnos con necesidades educativas especiales."
+"The website is the place where the student’s file will be kept with the "
+"objective of getting to know the child and his/her emotions. "
 msgstr ""
 
-#: common/templates/common/index.html:9
-msgid "¿Qué es inteligencia emocional?"
-msgstr ""
-
-#: common/templates/common/index.html:11
+#: .\common\templates\common\description.html:34
 msgid ""
-"Existen diversos autores que describen el concepto de inteligencia "
-"emocional, uno de los pioneros, es el Psicólogo y escritor Goleman, D (2010, "
-"p 90) el cual la describe como “la capacidad de reconocer nuestros propios "
-"sentimientos y los de los demás, de motivarnos y de manejar adecuadamente "
-"las relaciones”."
+"Nuestro objetivo es que los niños más pequeños identifiquen sus emociones "
+"básicas de forma dinámica, además de que esto sea una herramienta que "
+"beneficie a los alumnos con necesidades educativas especiales en nuestra "
+"escuela."
 msgstr ""
 
-#: common/templates/common/index.html:14
-msgid "Por su parte"
+#: .\common\templates\common\index.html:9
+msgid "¿What is Emotional Intelligence?"
 msgstr ""
 
-#: common/templates/common/index.html:20
+#: .\common\templates\common\index.html:11
 msgid ""
-"presenta una serie de competencias emocionales, estas competencias son las "
-"siguientes: Conciencia emocional, regulación emocional, autonomía emocional, "
-"competencia social y competencias para la vida y el bienestar."
+"In order to understand what Emotional Intelligence is, we must make "
+"reference to the meaning of the word intelligence itself, which comes from "
+the Latin word “intelligere”, it means to understand or perceive. "
+"In addition, it is important to consider there are several authors who have "
+"shown interest in defining and studying emotional intelligence, which "
+"according to psychologist Daniel Goleman is “the capacity to acknowledge our "
+"feelings and those of others, motivate ourselves and manage relationships properly ” .
 msgstr ""
 
-#: common/templates/common/index.html:23
-msgid "Según este autor,"
+#: .\common\templates\common\index.html:14
+msgid "Moreover, "
 msgstr ""
 
-#: common/templates/common/index.html:29
+#: .\common\templates\common\index.html:20
+msgid ""
+"(2009 en Fragoso, 2015) a series of emotional competencies was "
+"presented by Rafael Bisquerra, he said that conscience, regulation, "
+"emotional autonomy, social competency, life skills as well as wellbeing are "
+"important for humans."
+msgstr ""
+
+#: .\common\templates\common\index.html:23
+msgid "Este último autor"
+msgstr ""
+
+#: .\common\templates\common\index.html:29
 msgid ""
 "la inteligencia emocional consiste en la habilidad de manejar los "
 "sentimientos y emociones, discriminar entre ellos y utilizar estos "
 "conocimientos para dirigir los propios pensamientos y acciones (Bisquerra, "
-"R. 2000: 144)."
+"2000 en Oliveros, 2018, p. ¿?)."
 msgstr ""
 
-#: common/templates/common/index.html:32
-msgid "¿Por qué es importante la inteligencia emocional?"
+#: .\common\templates\common\index.html:32
+msgid "Why is it important?"
 msgstr ""
 
-#: common/templates/common/index.html:34
+#: .\common\templates\common\index.html:34
 msgid ""
-"La inteligencia emocional es una competencia que ayuda a la adaptación, "
-"motivación, e inserción social, por ello se considera importante la "
-"implementación de la educación emocional en etapas tempranas como el "
-"preescolar, para que el niño identifique y reconozca sus emociones y aprenda "
-"a regularlas, tanto en el ámbito escolar como en el contexto social. En las "
-"diferentes etapas el niño se enfrentará a diversas situaciones que pondrán a "
-"prueba su adaptación y tolerancia a la frustración, y si cuenta con las "
-"herramientas necesarias para afrontar estas situaciones se contribuirá a su "
-"crecimiento."
+"Emotional intelligence does work  and it is very important since it is a "
+"competency that helps adaptation, motivation, and social insertion, that "
+"is why the implementation of emotional education is considered important "
+"in the early years such as preschool, so that the child can identify "
+"and recognize his/her emotions, and learn to regulate them, both at the "
+"school field and in the social context."
 msgstr ""
 
-#: common/templates/common/index.html:44
-msgid "Sobre nosotros"
+#: .\common\templates\common\index.html:44
+msgid "About Us"
 msgstr ""
 
-#: common/templates/common/index.html:46
+#: .\common\templates\common\index.html:46
 msgid ""
-"Somos un grupo de alumnos 6º Semestre de HS el cual está interesado en "
-"realizar un proyecto que propicie las habilidades básicas de la inteligencia "
-"emocional, mostrando una situación de aprendizaje a través de cuentos para "
-"que los alumnos de la sección de preescolar identifiquen las diferentes "
-"emociones que están experimentando con la historia del cuento."
+"We are a group of High School students who are interested in creating a "
+"project in which we could help small children develop basic emotional "
+"intelligence skills, showing a learning situation through different "
+"stories especially chosen for preschoolers, with the objective of "
+"identifying the emotions they are experiencing while reading."
 msgstr ""
 
-#: common/templates/common/index.html:49
+#: .\common\templates\common\index.html:49
 msgid ""
-"Tuvimos el apoyo del departamento psicopedagógico con un taller de "
-"inteligencia emocional, cuyo objetivo fue proporcionarnos de manera "
-"vivencial, herramientas de alfabetización, conciencia y expresión emocional "
-"a través del cuerpo y la atención plena; Recibiendo también el apoyo por "
-"parte del área de tecnología de nuestro colegio para desarrollar la "
-"programación y mecanismo del prototipo."
+"We worked along the Psycho-social Support Department of our school. "
+"They gave us an Emotional Intelligence workshop in which we were able "
+"to learn literacy tools, awareness, physical emotional expression and "
+"full attention. In addition, we were also helped by the Technology "
+"Department in order to develop the program and mechanism of the prototype."
 msgstr ""
 
-#: common/templates/common/index.html:51
-msgid "Descripción prototipo"
+#: .\common\templates\common\index.html:51
+msgid "Prototype Description"
 msgstr ""
 
-#: common/templates/common/index.html:56
+#: .\common\templates\common\index.html:56
 msgid "Su navegador no soporta videos"
 msgstr ""
 
-#: common/templates/common/index.html:63
+#: .\common\templates\common\index.html:63
 msgid "Conoce a los creadores del proyecto"
 msgstr ""
 
-#: iste2021/settings.py:148
+#: .\iste2021\settings.py:148
 msgid "Español"
 msgstr ""
 
-#: iste2021/settings.py:149
+#: .\iste2021\settings.py:149
 msgid "English"
 msgstr ""
 
-#: iste2021/urls.py:8
+#: .\iste2021\urls.py:8
 msgid "Book Motion Kids Administración"
 msgstr ""
 
-#: iste2021/urls.py:9
+#: .\iste2021\urls.py:9
 msgid "Book Motion Kids Portal de Administración"
 msgstr ""
 
-#: iste2021/urls.py:10
+#: .\iste2021\urls.py:10
 msgid "Bienvenido al portal de Book Motion Kids"
 msgstr ""
