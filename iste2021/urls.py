@@ -5,9 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from session.views import SetButton, GetButton
 
-admin.site.site_header = _('Book Motion Kids Administración')
-admin.site.site_title = _('Book Motion Kids Portal de Administración')
-admin.site.index_title = _('Bienvenido al portal de Book Motion Kids')
+admin.site.site_header = _('Administración de Bookmotion Kids')
+admin.site.site_title = _('Portal de Administración de Bookmotion Kids')
+admin.site.index_title = _('Bienvenido al portal de Bookmotion Kids')
 
 urlpatterns = [
     path('', include('common.urls')),
