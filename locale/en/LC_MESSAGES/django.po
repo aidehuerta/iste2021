@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-10 21:46-0500\n"
+"POT-Creation-Date: 2021-06-11 11:14-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,28 +146,27 @@ msgstr ""
 "properly”."
 
 #: common/templates/common/index.html:14
-msgid "Por otra parte"
-msgstr "Moreover,"
-
-#: common/templates/common/index.html:20
 msgid ""
-"presenta una serie de competencias emocionales, como son: La conciencia, "
-"regulación, autonomía emocional; así como la competencia social y "
-"competencias para la vida y el bienestar."
+"Por otra parte, <a href='http://www.scielo.org.mx/scielo.php?"
+"script=sci_arttext&pid=S2007-28722015000200006' target='_blank'>Rafael "
+"Bisquerra</a> presenta una serie de competencias emocionales, como son: La "
+"conciencia, regulación, autonomía emocional; así como la competencia social "
+"y competencias para la vida y el bienestar."
 msgstr ""
-"a series of emotional competencies was presented by "
-"Rafael Bisquerra, he said that conscience, regulation, emotional autonomy, "
-"social competency, life skills as well as wellbeing are important for humans."
+"Moreover, a series of emotional competencies was presented by <a href='http://www.scielo.org.mx/scielo.php?"
+"script=sci_arttext&pid=S2007-28722015000200006' target='_blank'>Rafael Bisquerra</a>, he "
+"said that conscience, regulation, emotional autonomy, social competency, "
+"life skills as well as wellbeing are important for humans."
 
-#: common/templates/common/index.html:23
+#: common/templates/common/index.html:17
 msgid "Este último"
 msgstr "This last"
 
-#: common/templates/common/index.html:27
+#: common/templates/common/index.html:21
 msgid "autor"
 msgstr "author"
 
-#: common/templates/common/index.html:29
+#: common/templates/common/index.html:23
 msgid ""
 "menciona que la inteligencia emocional consiste en la habilidad de manejar "
 "los sentimientos y emociones, discriminar entre ellos y utilizar estos "
@@ -178,11 +177,11 @@ msgstr ""
 "feelings and emotions, discern between them and use this knowledge to focus "
 "his own thoughs and actions (Bisquerra, R. 2000: 144)."
 
-#: common/templates/common/index.html:32
+#: common/templates/common/index.html:26
 msgid "¿Por qué es importante?"
 msgstr "Why is it important?"
 
-#: common/templates/common/index.html:34
+#: common/templates/common/index.html:28
 msgid ""
 "Saber utilizar correctamente las emociones  ayuda a la adaptación, "
 "motivación, e inserción social; es por ello, que se considera importante "
@@ -200,11 +199,11 @@ msgstr ""
 "his/her emotions, and learn to regulate them, both at the school field and "
 "in the social context."
 
-#: common/templates/common/index.html:44
+#: common/templates/common/index.html:38
 msgid "Sobre nosotros"
 msgstr "About us"
 
-#: common/templates/common/index.html:46
+#: common/templates/common/index.html:40
 msgid ""
 "Como alumnos de preparatoria, estamos interesados en realizar un proyecto  "
 "donde ayudemos a desarrollar las habilidades básicas de la inteligencia "
@@ -219,7 +218,7 @@ msgstr ""
 "especially chosen for preschoolers, with the objective of identifying the "
 "emotions they are experiencing while reading."
 
-#: common/templates/common/index.html:49
+#: common/templates/common/index.html:43
 msgid ""
 "Tuvimos el apoyo del departamento psicopedagógico con un taller de "
 "inteligencia emocional, en donde pudimos adquirir de forma vivencial las "
@@ -234,27 +233,27 @@ msgstr ""
 "In addition, we were also helped by the Technology Department in order to "
 "develop the program and mechanism of the prototype."
 
-#: common/templates/common/index.html:51
+#: common/templates/common/index.html:45
 msgid "Descripción prototipo"
 msgstr "Prototype description"
 
-#: common/templates/common/index.html:56
+#: common/templates/common/index.html:50
 msgid "Su navegador no soporta videos"
 msgstr "Your browser doesn't support videos"
 
-#: common/templates/common/index.html:63
+#: common/templates/common/index.html:57
 msgid "Conoce a los creadores del proyecto"
 msgstr "Meet our project creators"
 
-#: common/templates/common/index.html:71 common/templates/common/index.html:98
+#: common/templates/common/index.html:65 common/templates/common/index.html:92
 msgid "Creadora del cuento"
 msgstr "Storywriter"
 
-#: common/templates/common/index.html:80 common/templates/common/index.html:107
+#: common/templates/common/index.html:74 common/templates/common/index.html:101
 msgid "Maker y programador"
 msgstr "Maker and developer"
 
-#: common/templates/common/index.html:89
+#: common/templates/common/index.html:83
 msgid "Diseñadora de la página web"
 msgstr "Website designer"
 
@@ -269,3 +268,6 @@ msgstr "Bookmotion Kids administration portal"
 #: iste2021/urls.py:10
 msgid "Bienvenido al portal de Bookmotion Kids"
 msgstr "Welcome to Bookmotion Kids portal"
+
+#~ msgid "Por otra parte"
+#~ msgstr "Moreover,"
