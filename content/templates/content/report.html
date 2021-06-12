@@ -1,0 +1,73 @@
+{% extends "base2.html" %} {% load static %} {% block styles %} {% endblock %}
+{% block content %}
+<div class="main">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white text-dark small">
+      <li class="breadcrumb-item">
+        <a href="{% url 'common:home' %}">Principal</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <a href="{% url 'content:home' %}">Contenido</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Reporte</li>
+    </ol>
+  </nav>
+
+  <div class="container-fluid mb-5">
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <h2 class="logo-font mb-4">Reporte del contenido {{ content.name }}</h2>
+        <hr />
+      </div>
+    </div>
+
+    <div class="container-fluid mb-5">
+      <div class="row" style="height: 500px">
+        <div class="no-data">No hay sesiones registradas</div>
+        <canvas id="pie-chart"></canvas>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <div class="col-12 col-md-12">
+          <a
+            class="btn btn-outline-dark rounded-0"
+            href="{% url 'content:edit' content.id %}"
+            >Regresar</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %} {% block scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: {{ colors|safe }},
+          borderColor: '#000000',
+          borderWidth: 1,
+          label: 'Emoción'
+        }],
+        labels: {{ labels|safe }},
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      if ({{ data|safe }}.length > 0) {
+        $(".no-data").addClass("d-none");
+        window.myPie = new Chart(ctx, config);
+      }
+    };
+  </script>
+  {% endblock %}
+</div>

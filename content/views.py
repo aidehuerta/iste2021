@@ -1,6 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404, redirect, render, reverse
+
+from session.models import Emotion, Session
 
 from .forms import ContentForm
 from .models import Content
@@ -100,3 +103,37 @@ def delete(request, pk):
             request, f'El contenido "{content.title}" no se pudo borrar, tiene sesiones.')
 
     return redirect(reverse('content:home'))
+
+
+@login_required
+def report(request, pk):
+    if not request.user.has_perm('content.view_content'):
+        messages.error(request, 'No tienes el permiso para ver contenidos.')
+        return redirect(reverse('common:home'))
+
+    content = get_object_or_404(Content, pk=pk)
+    sessions = Session.objects.filter(
+        content=content
+    ).values(
+        'emotion__name',
+        'emotion__color'
+    ).annotate(
+        sum=Sum('emotion')
+    )
+
+    labels = []
+    colors = []
+    data = []
+    if sessions.exists():
+        labels = [_['emotion__name'] for _ in sessions]
+        colors = [_['emotion__color'] for _ in sessions]
+        data = [_['sum'] for _ in sessions]
+
+    context = {
+        'content': content,
+        'labels': labels,
+        'colors': colors,
+        'data': data,
+    }
+
+    return render(request, 'content/report.html', context=context)

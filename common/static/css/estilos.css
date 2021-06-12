@@ -483,3 +483,8 @@ label {
   padding: 20px 0;
   border: none;
 }
+
+.no-data {
+  font-weight: 600;
+  margin: 240px auto;
+}
