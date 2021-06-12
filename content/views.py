@@ -1,9 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
-from session.models import Emotion, Session
+from session.models import Session
 
 from .forms import ContentForm
 from .models import Content
@@ -118,7 +118,7 @@ def report(request, pk):
         'emotion__name',
         'emotion__color'
     ).annotate(
-        sum=Sum('emotion')
+        sum=Count('emotion')
     )
 
     labels = []
