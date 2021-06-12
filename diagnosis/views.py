@@ -90,8 +90,14 @@ def delete(request, pk):
         return redirect(reverse('diagnosis:home'))
 
     diagnosis = get_object_or_404(Diagnosis, pk=pk)
-    diagnosis.delete()
-    messages.success(
-        request, f'El diagnóstico "{diagnosis.name}" fue eliminado.')
+
+    try:
+        diagnosis.delete()
+        messages.success(
+            request, f'El diagnóstico "{diagnosis.name}" fue eliminado.')
+
+    except:
+        messages.error(
+            request, f'El diagnóstico "{diagnosis.name}" no se pudo borrar, vinculado a estudiantes.')
 
     return redirect(reverse('diagnosis:home'))

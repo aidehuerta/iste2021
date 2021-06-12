@@ -98,8 +98,16 @@ def delete(request, pk):
         return redirect(reverse('student:home'))
 
     student = get_object_or_404(Student, pk=pk)
-    student.delete()
-    messages.success(request, f'El estudiante "{student.name}" fue eliminado.')
+
+    try:
+        student.delete()
+        messages.success(
+            request, f'El estudiante "{student.name}" fue eliminado.')
+
+    except:
+        messages.error(
+            request, f'El estudiante "{student.name}" no se pudo borrar, tiene sesiones.')
+
     return redirect(reverse('student:home'))
 
 

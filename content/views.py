@@ -89,7 +89,14 @@ def delete(request, pk):
         return redirect(reverse('content:home'))
 
     content = get_object_or_404(Content, pk=pk)
-    content.delete()
-    messages.success(request, f'El contenido "{content.title}" fue eliminado.')
+
+    try:
+        content.delete()
+        messages.success(
+            request, f'El contenido "{content.title}" fue eliminado.')
+
+    except:
+        messages.error(
+            request, f'El contenido "{content.title}" no se pudo borrar, tiene sesiones.')
 
     return redirect(reverse('content:home'))

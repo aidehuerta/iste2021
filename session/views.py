@@ -141,9 +141,15 @@ def delete(request, pk):
         return redirect(reverse('session:home'))
 
     session = get_object_or_404(Session, pk=pk)
-    session.delete()
-    messages.success(
-        request, f'La sesión "{session.student} - {session.content}" fue eliminado.')
+
+    try:
+        session.delete()
+        messages.success(
+            request, f'La sesión "{session.student} - {session.content}" fue eliminado.')
+
+    except:
+        messages.error(
+            request, f'El sesión "{session.student} - {session.content}" no se pudo borrar.')
 
     return redirect(reverse('session:home'))
 

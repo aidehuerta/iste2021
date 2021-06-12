@@ -108,8 +108,14 @@ def delete(request, pk):
         return redirect(reverse('group:home'))
 
     group = get_object_or_404(Group, pk=pk)
-    group.delete()
-    messages.success(request, f'El grupo "{group.name}" fue eliminado.')
+
+    try:
+        group.delete()
+        messages.success(request, f'El grupo "{group.name}" fue eliminado.')
+
+    except:
+        messages.error(
+            request, f'El grupo "{group.name}" no se pudo borrar, tiene estudiantes.')
 
     return redirect(reverse('group:home'))
 
