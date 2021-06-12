@@ -41,6 +41,13 @@ def add(request):
         form = SessionForm(request.POST, user=request.user)
 
         if form.is_valid():
+            if Session.objects.filter(
+                    content=form.cleaned_data.get("content"),
+                    user=form.cleaned_data.get("user")).exists():
+                messages.error(
+                    request, 'No se pudo agregar la sesión. Ya existe una para este estudiante y sesión.')
+                return redirect(reverse('session:home'))
+
             form.save()
             messages.success(
                 request, f'Se agrego la sesión "{form.cleaned_data.get("student")} - {form.cleaned_data.get("content")}" con éxito.')
@@ -73,6 +80,13 @@ def edit(request, pk):
         form = SessionForm(request.POST, instance=session, user=request.user)
 
         if form.is_valid():
+            if Session.objects.filter(
+                    content=form.cleaned_data.get("content"),
+                    user=form.cleaned_data.get("user")).exists():
+                messages.error(
+                    request, 'No se pudo agregar la sesión. Ya existe una para este estudiante y sesión.')
+                return redirect(reverse('session:home'))
+
             form.save()
             messages.success(
                 request, f'Se edito el contenido "{form.cleaned_data.get("student")} - {form.cleaned_data.get("content")}" con éxito.')
