@@ -98,7 +98,6 @@ article > section:nth-child(1) {
   padding: 20px 0;
   flex-flow: row wrap;
   height: 100%;
-  min-height: 600px;
 }
 
 #descripcion {
@@ -150,15 +149,12 @@ article > section:nth-child(2) {
 }
 
 #seccionDos {
-  display: flex;
-  flex-flow: row wrap;
   font-size: 1.1rem;
   line-height: 2;
 }
 
 #seccionDos div {
-  flex-basis: 55%;
-  padding: right 1.9rem;
+  padding: 0;
 }
 
 #seccionDos p {
@@ -168,18 +164,36 @@ article > section:nth-child(2) {
 
 video {
   flex-basis: 40%;
-  width: 40%;
+  width: 100%;
   height: 100%;
   margin: 35px auto;
 }
 
+@media (min-width: 450px) {
+  #seccionDos {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  #seccionDos div {
+    flex-basis: 55%;
+    padding: right 1.9rem;
+  }
+
+  video {
+    width: 40%;
+  }
+}
+
 #seccionDos a {
-  display: inline-block;
+  display: block;
   background-color: #000;
   color: #fff;
-  padding: 12px 10em;
+  padding: 12px 1em;
   text-decoration: none;
-  margin: 25px 0;
+  text-align: center;
+  margin: 0 auto 25px;
+  width: 70%
 }
 
 /* seccion 3*/
@@ -189,7 +203,7 @@ article > section:nth-child(3) {
 }
 
 #seccionTres {
-  display: flex;
+  display: block;
   justify-content: space-between;
   margin: 50px auto;
   font-size: 1rem;
@@ -203,6 +217,7 @@ article > section:nth-child(3) {
 
 .card img {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .card p {
@@ -215,6 +230,12 @@ article > section:nth-child(3) {
   font-size: 1.5rem;
   color: #107ba7;
   margin: 0 0.2em;
+}
+
+@media (min-width: 450px) {
+  #seccionTres {
+    display: flex;
+  }
 }
 
 /* seccion 4*/
@@ -258,17 +279,17 @@ footer {
 }
 
 .copyright {
-  float: right;
   color: #c0bcbc;
   padding-top: 9px;
-}
-
-.nav {
-  float: left;
+  text-align: center;
 }
 
 #pieDePagina {
   overflow: hidden;
+}
+
+.nav {
+  padding-left: revert;
 }
 
 .nav li {
@@ -287,9 +308,20 @@ footer {
   text-decoration: underline;
 }
 
-#foto {
-  margin-bottom: 33px;
-  padding-left: 60px;
+@media (min-width: 450px) {
+  .copyright {
+    float: right;
+  }
+
+  .nav {
+    float: left;
+    padding-left: inherit;
+  }
+}
+
+#foto img {
+  margin-bottom: 25px;
+  width: 100%;
 }
 
 .centrado {
@@ -345,15 +377,6 @@ footer {
   overflow-x: auto;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
-}
-
 .breadcrumb {
   margin-bottom: 0;
 }
@@ -385,7 +408,6 @@ footer {
 
 .home-foto {
   text-align: center;
-  padding-top: 50px;
 }
 
 label {

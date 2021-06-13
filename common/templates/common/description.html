@@ -3,8 +3,8 @@
 <main>
   <article>
     <section>
-      <div id="seccionUno" class="container">
-        <div>
+      <div id="seccionUno" class="container row">
+        <div class="col-md-6">
           <h2>{% trans "Nuestro proyecto se llama Bookmotion Kids y consiste en:" %}</h2>
           <h3>{% trans "Cuentos cortos animados." %}</h3>
           <ul>
@@ -34,11 +34,10 @@
             {% trans "Nuestro objetivo es que los niños más pequeños identifiquen sus emociones básicas de forma dinámica, además de que esto sea una herramienta que beneficie a los alumnos con necesidades educativas especiales en nuestra escuela." %}
           </p>
         </div>
-        <div id="foto">
+        <div id="foto" class="col-md-6">
           <img
             src="{% static 'images/iste2021.jpg' %}"
             alt="logotipo"
-            width="600px"
           />
         </div>
       </div>
