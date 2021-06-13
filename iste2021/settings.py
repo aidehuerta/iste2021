@@ -111,9 +111,21 @@ WSGI_APPLICATION = 'iste2021.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': django.db.backends.sqlite3,
+    #     'NAME': db.sqlite3,
+    # }
     'default': {
         'ENGINE': config('DB_ENGINE'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
         'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4'
+        }
     }
 }
 
