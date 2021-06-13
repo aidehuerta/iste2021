@@ -44,7 +44,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
     var config = {
-      type: 'pie',
+      type: 'doughnut',
       data: {
         datasets: [{
           data: {{ data|safe }},
@@ -60,6 +60,24 @@
         maintainAspectRatio: false
       }
     };
+
+    var draw = Chart.controllers.doughnut.prototype.draw;
+    Chart.controllers.doughnut = Chart.controllers.doughnut.extend({
+    draw: function() {
+        draw.apply(this, arguments);
+        let ctx = this.chart.chart.ctx;
+        let _fill = ctx.fill;
+        ctx.fill = function() {
+            ctx.save();
+            ctx.shadowColor = '#666666';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            _fill.apply(this, arguments)
+            ctx.restore();
+        }
+    }
+    });
 
     window.onload = function() {
       var ctx = document.getElementById('pie-chart').getContext('2d');
