@@ -43,11 +43,13 @@
               href="{% url 'session:home' %}"
               >Cancelar</a
             >
+            {% if session.emotion is None %}
             <a
               class="btn btn-outline-danger rounded-0"
               href="{% url 'session:delete' session.id %}"
               >Borrar</a
             >
+            {% endif %}
             <button class="btn btn-outline-success rounded-0" type="submit">
               Actualizar
             </button>

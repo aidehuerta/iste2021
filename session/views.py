@@ -82,7 +82,10 @@ def edit(request, pk):
         if form.is_valid():
             if Session.objects.filter(
                     content=form.cleaned_data.get("content"),
-                    user=form.cleaned_data.get("user")).exists():
+                    user=form.cleaned_data.get("user")
+            ).exclude(
+                id=session.id
+            ).exists():
                 messages.error(
                     request, 'No se pudo agregar la sesión. Ya existe una para este estudiante y sesión.')
                 return redirect(reverse('session:home'))
@@ -127,9 +130,8 @@ def apply(request, pk):
         form = SessionApplyForm(request.POST, instance=session)
 
         if form.is_valid():
-            form.save()
             messages.success(
-                request, f'Se edito el contenido "{form.instance.student} - {form.instance.content} con éxito.')
+                request, f'Se recibió la emoción para la sesión con éxito.')
             return redirect(reverse('session:edit', kwargs={'pk': form.instance.id}))
 
         else:

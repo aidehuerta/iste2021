@@ -76,7 +76,10 @@ def edit(request, pk):
         form = GroupForm(request.POST, instance=group)
 
         if form.is_valid():
-            if Group.objects.filter(user=form.cleaned_data.get("user")).exists():
+            if Group.objects.filter(user=form.cleaned_data.get("user")
+                                    ).exclude(
+                id=group.id
+            ).exists():
                 messages.error(
                     request, 'No se pudo agregar el grupo. El maestro ya tiene otro grupo.')
                 return redirect(reverse('group:home'))

@@ -473,6 +473,11 @@ label {
   background-color: #ffffff;
 }
 
+.emotion.none,
+.None {
+  background-color: #dddddd;
+}
+
 #emotion-color > h1 {
   padding-top: 70px;
   margin: 0 auto;

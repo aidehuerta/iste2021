@@ -99,34 +99,11 @@
                 if (response.id != null) {
                   clearInterval(pooling);
 
-                  var emotion_color = "";
-
                   $("#emotion_value").val(response.id);
-
-                  switch (response.color) {
-                    case "Verde":
-                      emotion_color = "green";
-                      break;
-
-                    case "Azul":
-                      emotion_color = "blue";
-                      break;
-
-                    case "Rojo":
-                      emotion_color = "red";
-                      break;
-
-                    case "Amarillo":
-                      emotion_color = "yellow";
-                      break;
-
-                    default:
-                      emotion_color = "white";
-                  }
 
                   $("#emotion").addClass("d-none");
                   $("#emotion-color")
-                    .addClass("emotion " + emotion_color)
+                    .addClass("emotion " + response.color)
                     .html("<h1>" + response.color + "</h1>");
                   $("#emotion-color, #submit").removeClass("d-none");
                 }
