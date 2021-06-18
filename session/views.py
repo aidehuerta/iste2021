@@ -43,7 +43,7 @@ def add(request):
         if form.is_valid():
             if Session.objects.filter(
                     content=form.cleaned_data.get("content"),
-                    user=form.cleaned_data.get("user")).exists():
+                    student=form.cleaned_data.get("student")).exists():
                 messages.error(
                     request, 'No se pudo agregar la sesión. Ya existe una para este estudiante y sesión.')
                 return redirect(reverse('session:home'))
@@ -82,7 +82,7 @@ def edit(request, pk):
         if form.is_valid():
             if Session.objects.filter(
                     content=form.cleaned_data.get("content"),
-                    user=form.cleaned_data.get("user")
+                    student=form.cleaned_data.get("student")
             ).exclude(
                 id=session.id
             ).exists():
@@ -187,7 +187,7 @@ class SetButton(generics.ListAPIView):
         if boton is None:
             boton = request.query_params.get('boton')
 
-        if boton is not None:
+        if boton is not None and boton >= 1 and boton <= 5:
             sesion = Session.objects.filter(
                 emotion__isnull=True
             ).order_by(

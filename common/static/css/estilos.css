@@ -515,3 +515,8 @@ label {
   font-weight: 600;
   margin: 240px auto;
 }
+
+.card-video-title hr {
+  margin: 5px 0;
+  border-top: 1px solid rgba(0,0,0,.25);
+}
