@@ -176,16 +176,16 @@ class SetButton(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         colores = {
-            '1': 'green',
-            '2': 'blue',
-            '3': 'red',
-            '4': 'yellow',
-            '5': 'white',
+            1: 'green',
+            2: 'blue',
+            3: 'red',
+            4: 'yellow',
+            5: 'white',
         }
 
         boton = kwargs.get('boton')
         if boton is None:
-            boton = request.query_params.get('boton')
+            boton = int(request.query_params.get('boton'))
 
         if boton is not None and boton >= 1 and boton <= 5:
             sesion = Session.objects.filter(
@@ -196,7 +196,7 @@ class SetButton(generics.ListAPIView):
 
             respuesta = ''
             if sesion is not None:
-                sesion.emotion_id = int(boton)
+                sesion.emotion_id = boton
                 sesion.save()
                 respuesta = f'Sesión {sesion}. '
 
